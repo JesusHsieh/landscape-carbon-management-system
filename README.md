@@ -185,8 +185,3 @@ All data, emission factors, sequestration values, and calculations are currently
 
 It is **not** intended for third-party verification, carbon credit application, official carbon accounting, ISO verification, ESG disclosure, or regulatory reporting.
 
----
-
-## License
-
-MIT — 本專案開源，歡迎參考與二次開發，請保留原始聲明。
