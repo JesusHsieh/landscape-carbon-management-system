@@ -8,7 +8,7 @@
 
 ## 線上預覽 Live Demo
 
-🔗 部署後將更新 GitHub Pages URL
+🔗 https://jesushsieh.github.io/landscape-carbon-management-system/
 
 ---
 
