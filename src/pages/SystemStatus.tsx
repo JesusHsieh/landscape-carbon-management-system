@@ -83,7 +83,7 @@ const SystemStatus = () => (
         <Card title="Development Roadmap｜開發路線圖" icon={Zap}>
           <div className="space-y-4">
             {[
-              { v: 'v0.1', t: 'AI Studio UI Prototype', active: false },
+              { v: 'v0.1', t: 'Frontend Prototype', active: false },
               { v: 'v0.2', t: 'UI 架構整理與 Code 重構', active: true },
               { v: 'v0.3', t: 'Mock Data Schema', active: false },
               { v: 'v0.4', t: 'CSV / JSON / Google Sheet 匯入', active: false },
