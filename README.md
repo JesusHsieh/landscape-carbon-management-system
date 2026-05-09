@@ -81,9 +81,36 @@ NCMS 的核心架構包含三個主要碳管理面向：
 
 ## 前端資料架構
 
+> v0.2 起已將單一 App.tsx（3,554 行）拆分為模組化結構。
+
 ```
 src/
-├── types/index.ts              # TypeScript 型別定義（10 個介面）
+├── App.tsx                     # 主應用：layout、sidebar、routing（~280 行）
+├── components/
+│   └── ui/                     # 共用 UI 元件
+│       ├── Card.tsx
+│       ├── Metric.tsx
+│       ├── SectionHeading.tsx
+│       └── SidebarItem.tsx
+├── constants/
+│   └── navigation.ts           # 導覽項目定義
+├── pages/                      # 各功能頁面元件
+│   ├── Dashboard.tsx
+│   ├── Boundary.tsx
+│   ├── SiteData.tsx
+│   ├── BOQ.tsx
+│   ├── Materials.tsx
+│   ├── Vegetation.tsx
+│   ├── Soil.tsx
+│   ├── Maintenance.tsx
+│   ├── Engine.tsx
+│   ├── Scenario.tsx
+│   ├── ReductionStrategy.tsx
+│   ├── Reporting.tsx
+│   ├── Sources.tsx
+│   ├── DataInput.tsx
+│   └── SystemStatus.tsx
+├── types/index.ts              # TypeScript 型別定義
 ├── data/
 │   ├── mockData.ts             # 全域 Mock Data
 │   └── defaults/               # 各模組預設值（可被 Data Input 覆寫）
@@ -101,7 +128,8 @@ src/
 ├── utils/
 │   ├── validation.ts           # 輸入驗證
 │   └── carbonCalculations.ts  # Prototype 簡化碳排計算
-└── App.tsx                     # 主應用（所有頁面元件）
+└── lib/
+    └── utils.ts                # cn() className 工具函式
 ```
 
 ---
