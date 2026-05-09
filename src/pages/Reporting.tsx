@@ -1,4 +1,4 @@
-import { FileText, ShieldCheck, Info, Activity, Zap, Leaf, TrendingUp, AlertCircle, CheckSquare } from 'lucide-react';
+﻿import { FileText, ShieldCheck, Info, Activity, Zap, Leaf, TrendingUp, AlertCircle, CheckSquare } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useProject } from '../store/projectStore';
 import Card from '../components/ui/Card';
@@ -11,7 +11,7 @@ const Reporting = () => {
   <div className="space-y-6 animate-in fade-in duration-500 font-sans">
     <div className="space-y-2">
       <SectionHeading title="報表輸出與報告預覽" subtitle="Generate Professional Carbon Reports" />
-      <p className="text-[10px] text-secondary/70 leading-relaxed italic border-l-2 border-primary/30 pl-3">
+      <p className="text-[13px] text-secondary/70 leading-relaxed italic border-l-2 border-primary/30 pl-3">
         「本報告整合 Boundary、Site Data、BOQ、Materials、Vegetation、Soil、Maintenance、Engine、Scenario 與 Reduction 模組結果，形成設計階段景觀碳管理摘要。」
       </p>
     </div>
@@ -26,8 +26,8 @@ const Reporting = () => {
             </button>
 
             <div className="space-y-3">
-              <label className="text-[9px] text-secondary font-bold uppercase tracking-widest">報告版本資訊</label>
-              <div className="p-3 bg-white/5 rounded-xl border border-white/5 space-y-1.5 font-mono text-[9px]">
+              <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">報告版本資訊</label>
+              <div className="p-3 bg-white/5 rounded-xl border border-white/5 space-y-1.5 font-mono text-[13px]">
                 <div className="flex justify-between"><span className="text-secondary">Version</span><span className="text-ink">v1.0 Preview</span></div>
                 <div className="flex justify-between"><span className="text-secondary">Engine</span><span className="text-ink">NCMS v0.1</span></div>
                 <div className="flex justify-between"><span className="text-secondary">Data</span><span className="text-primary">Mock v0.1</span></div>
@@ -36,10 +36,10 @@ const Reporting = () => {
             </div>
 
             <div className="space-y-3">
-              <label className="text-[9px] text-secondary font-bold uppercase tracking-widest">報告類型</label>
+              <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">報告類型</label>
               <div className="grid grid-cols-1 gap-2">
                 {['摘要版 (業主簡報)', '標準版 (設計檢討)', '技術版 (詳細模型)', '作品集版 (Portfolio)'].map((t, i) => (
-                  <button key={i} className={cn("text-left p-3 rounded-xl border text-[10px] font-bold transition-all", i === 1 ? "bg-primary/10 border-primary/40 text-primary" : "bg-white/5 border-white/10 text-secondary hover:border-white/20")}>
+                  <button key={i} className={cn("text-left p-3 rounded-xl border text-[13px] font-bold transition-all", i === 1 ? "bg-primary/10 border-primary/40 text-primary" : "bg-white/5 border-white/10 text-secondary hover:border-white/20")}>
                     {t}
                   </button>
                 ))}
@@ -47,7 +47,7 @@ const Reporting = () => {
             </div>
 
             <div className="space-y-3">
-              <label className="text-[9px] text-secondary font-bold uppercase tracking-widest">報告章節勾選</label>
+              <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">報告章節勾選</label>
               <div className="space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
                 {[
                   "專案基本資料", "評估邊界", "方法論摘要", "工程數量摘要", "材料碳排分析",
@@ -58,17 +58,17 @@ const Reporting = () => {
                     <div className="w-4 h-4 border border-white/20 rounded flex items-center justify-center group-hover:border-primary/50">
                       <div className="w-2 h-2 bg-primary rounded-sm" />
                     </div>
-                    <span className="text-[10px] text-secondary group-hover:text-ink">{chapter}</span>
+                    <span className="text-[13px] text-secondary group-hover:text-ink">{chapter}</span>
                   </label>
                 ))}
               </div>
             </div>
 
             <div className="space-y-2 pt-2 border-t border-white/5">
-              <label className="text-[9px] text-secondary font-bold uppercase tracking-widest">輸出格式</label>
+              <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">輸出格式</label>
               <div className="grid grid-cols-2 gap-2">
                 {['PDF', 'XLSX', 'HTML', 'Markdown'].map(f => (
-                  <button key={f} className="p-2 border border-white/10 rounded-lg text-xs font-bold text-secondary hover:bg-white/5 hover:text-ink">{f}</button>
+                  <button key={f} className="p-2 border border-white/10 rounded-lg text-[13px] font-bold text-secondary hover:bg-white/5 hover:text-ink">{f}</button>
                 ))}
               </div>
             </div>
@@ -87,7 +87,7 @@ const Reporting = () => {
                 { label: 'Maintenance 情境', status: '完成' },
                 { label: 'Sources 資料來源', status: '待補正' },
               ].map((item, i) => (
-                <div key={i} className="flex justify-between items-center text-[9px] p-2 bg-white/5 rounded-lg">
+                <div key={i} className="flex justify-between items-center text-[13px] p-2 bg-white/5 rounded-lg">
                    <span className="text-secondary">{item.label}</span>
                    <span className={cn("font-bold px-1.5 py-0.5 rounded", item.status === '完成' ? "bg-primary/20 text-primary" : "bg-accent/20 text-accent")}>{item.status}</span>
                 </div>
@@ -108,10 +108,10 @@ const Reporting = () => {
             </div>
 
             <div className="text-center border-b-2 border-primary/20 pb-12 space-y-4">
-              <div className="text-[10px] tracking-widest uppercase font-bold text-primary opacity-60">Professional Landscape Carbon Management Report</div>
+              <div className="text-[13px] tracking-widest uppercase font-bold text-primary opacity-60">Professional Landscape Carbon Management Report</div>
               <h1 className="text-4xl font-black text-[#1A1A1A]">景觀專案生命週期碳管理報告</h1>
               <div className="text-sm font-bold tracking-widest uppercase text-secondary">TAIPEI DIGITAL FOREST LANDSCAPE LCA REPORT v1.0</div>
-              <div className="flex justify-center gap-6 text-[10px] font-bold text-secondary uppercase pt-4">
+              <div className="flex justify-center gap-6 text-[13px] font-bold text-secondary uppercase pt-4">
                   <span>Engine: NCMS v0.1</span>
                   <span>Date: 2024.05.02</span>
                   <span>Author: NCMS Engine</span>
@@ -157,14 +157,14 @@ const Reporting = () => {
                   { label: '喬木總數', val: String(computed.totalTrees), unit: '株' },
                 ].map((item, i) => (
                   <div key={i} className="space-y-1">
-                     <div className="text-[10px] text-secondary font-bold uppercase tracking-widest">{item.label}</div>
-                     <div className={cn("text-2xl font-black font-mono", item.highlight || "text-[#1A1A1A]")}>{item.val}<span className="text-[10px] ml-1 opacity-60 font-sans">{item.unit}</span></div>
+                     <div className="text-[13px] text-secondary font-bold uppercase tracking-widest">{item.label}</div>
+                     <div className={cn("text-2xl font-black font-mono", item.highlight || "text-[#1A1A1A]")}>{item.val}<span className="text-[13px] ml-1 opacity-60 font-sans">{item.unit}</span></div>
                   </div>
                 ))}
               </div>
               <div className="mt-4 p-4 bg-primary/5 rounded-xl border border-primary/10 flex justify-between items-center">
-                 <div className="text-xs font-bold text-secondary">高碳熱點：<span className="text-accent underline underline-offset-4">鋪面 / 混凝土</span></div>
-                 <div className="text-xs font-bold text-secondary">推薦方案：<span className="text-primary">Nature Positive</span></div>
+                 <div className="text-[13px] font-bold text-secondary">高碳熱點：<span className="text-accent underline underline-offset-4">鋪面 / 混凝土</span></div>
+                 <div className="text-[13px] font-bold text-secondary">推薦方案：<span className="text-primary">Nature Positive</span></div>
               </div>
             </section>
 
@@ -180,7 +180,7 @@ const Reporting = () => {
                        { section: '維護分析', module: 'Maintenance' },
                        { section: '減碳策略', module: 'Reduction' },
                      ].map((m, i) => (
-                       <div key={i} className="flex justify-between text-[11px] border-b border-black/5 pb-1">
+                       <div key={i} className="flex justify-between text-[13px] border-b border-black/5 pb-1">
                           <span className="text-secondary font-medium">{m.section}</span>
                           <span className="text-primary font-bold font-mono">{m.module}</span>
                        </div>
@@ -193,11 +193,11 @@ const Reporting = () => {
                   <div className="flex items-center gap-4 mb-4">
                      <div className="text-4xl font-black text-primary">{computed.dataConfidence}</div>
                      <div className="space-y-0.5">
-                        <div className="text-[10px] font-bold text-secondary uppercase">及格 / 待優化</div>
-                        <div className="text-[10px] text-accent font-bold">Prototype Mock Data</div>
+                        <div className="text-[13px] font-bold text-secondary uppercase">及格 / 待優化</div>
+                        <div className="text-[13px] text-accent font-bold">Prototype Mock Data</div>
                      </div>
                   </div>
-                  <div className="text-[10px] text-secondary space-y-1.5 leading-relaxed italic border-t border-black/5 pt-4">
+                  <div className="text-[13px] text-secondary space-y-1.5 leading-relaxed italic border-t border-black/5 pt-4">
                      <p>• 材料係數：部分示範值</p>
                      <p>• 植栽模型：簡化成長模型</p>
                      <p>• 重點限制：不可作為正式查證使用</p>
@@ -212,7 +212,7 @@ const Reporting = () => {
                     "補充正式材料 EPD 資料", "匯入 CAD/Excel 數量表", "補充樹木調查表與修正成活率",
                     "補充土壤檢測與保存策略", "重新生成正式核算報告", "匯出 Markdown 作品展示"
                   ].map((step, i) => (
-                    <div key={i} className="flex gap-2 items-start text-[10px] text-secondary bg-black/5 p-3 rounded-lg border border-black/5">
+                    <div key={i} className="flex gap-2 items-start text-[13px] text-secondary bg-black/5 p-3 rounded-lg border border-black/5">
                        <CheckSquare className="w-3 h-3 text-primary shrink-0 mt-0.5" />
                        {step}
                     </div>
@@ -220,7 +220,7 @@ const Reporting = () => {
                </div>
             </section>
 
-            <div className="pt-12 border-t border-black/10 text-[10px] text-secondary leading-relaxed space-y-4">
+            <div className="pt-12 border-t border-black/10 text-[13px] text-secondary leading-relaxed space-y-4">
               <p className="font-bold">免責聲明 Disclaimer：</p>
               <p className="italic opacity-80">
                 本報告所列碳排、碳匯、抵平年份與減碳潛力，均基於 NCMS Prototype v0.1 示範資料與簡化模型產出。材料係數、植栽成長模型、土壤有機碳變化與維護頻率尚未經第三方查證，亦未接入正式 EPD、官方係數庫或現地監測資料。因此本報告僅供設計階段方案比較、內部溝通與概念展示使用，不可作為正式碳盤查、碳權申請、第三方驗證或法規申報依據。

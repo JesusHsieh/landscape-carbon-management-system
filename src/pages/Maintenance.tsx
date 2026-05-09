@@ -1,4 +1,4 @@
-import { TrendingDown, Leaf, ClipboardList, Activity, Calculator, Info, AlertCircle, Compass, Zap } from 'lucide-react';
+﻿import { TrendingDown, Leaf, ClipboardList, Activity, Calculator, Info, AlertCircle, Compass, Zap } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Card from '../components/ui/Card';
 import SectionHeading from '../components/ui/SectionHeading';
@@ -12,31 +12,31 @@ const Maintenance = () => (
       <div className="p-6 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center gap-4 text-center group hover:border-red-400/30 transition-all">
         <div className="p-3 bg-red-400/10 rounded-full"><TrendingDown className="w-8 h-8 text-red-400 rotate-180" /></div>
         <h4 className="font-bold text-ink">高強度維護情境</h4>
-        <p className="text-[11px] text-secondary leading-relaxed">密集除草、自動灌溉、高頻率修剪</p>
+        <p className="text-[13px] text-secondary leading-relaxed">密集除草、自動灌溉、高頻率修剪</p>
         <div className="space-y-1">
           <div className="text-xl font-bold text-ink">12.5 tCO2e/yr</div>
-          <div className="text-[10px] text-accent font-bold">30 年累積約 375 tCO2e</div>
-          <div className="text-[9px] text-secondary/60">相較標準情境 +198%</div>
+          <div className="text-[13px] text-accent font-bold">30 年累積約 375 tCO2e</div>
+          <div className="text-[13px] text-secondary/60">相較標準情境 +198%</div>
         </div>
       </div>
       <div className="p-6 bg-primary/20 rounded-3xl border border-primary/20 flex flex-col items-center gap-4 text-center ring-2 ring-primary/40 group hover:ring-primary transition-all">
         <div className="p-3 bg-primary/10 rounded-full"><TrendingDown className="w-8 h-8 text-primary" /></div>
         <h4 className="font-bold text-ink">標準維護情境 (設計方案)</h4>
-        <p className="text-[11px] text-secondary leading-relaxed">季節性修剪、分區平衡灌溉</p>
+        <p className="text-[13px] text-secondary leading-relaxed">季節性修剪、分區平衡灌溉</p>
         <div className="space-y-1">
           <div className="text-xl font-bold text-primary">4.2 tCO2e/yr</div>
-          <div className="text-[10px] text-primary font-bold">30 年累積約 126 tCO2e</div>
-          <div className="text-[9px] text-secondary/60">作為本案基準維護模型</div>
+          <div className="text-[13px] text-primary font-bold">30 年累積約 126 tCO2e</div>
+          <div className="text-[13px] text-secondary/60">作為本案基準維護模型</div>
         </div>
       </div>
       <div className="p-6 bg-white/5 rounded-3xl border border-white/10 flex flex-col items-center gap-4 text-center group hover:border-primary/30 transition-all">
         <div className="p-3 bg-secondary/10 rounded-full"><Leaf className="w-8 h-8 text-secondary" /></div>
         <h4 className="font-bold text-ink">近自然維護情境</h4>
-        <p className="text-[11px] text-secondary leading-relaxed">現地循環堆肥、原生多樣地被</p>
+        <p className="text-[13px] text-secondary leading-relaxed">現地循環堆肥、原生多樣地被</p>
         <div className="space-y-1">
           <div className="text-xl font-bold text-ink">0.8 tCO2e/yr</div>
-          <div className="text-[10px] text-primary font-bold">30 年累積約 24 tCO2e</div>
-          <div className="text-[9px] text-secondary/60">相較標準情境 -81%</div>
+          <div className="text-[13px] text-primary font-bold">30 年累積約 24 tCO2e</div>
+          <div className="text-[13px] text-secondary/60">相較標準情境 -81%</div>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@ const Maintenance = () => (
         {/* Scenario Definition Table */}
         <Card title="情境定義 Scenario Definition" icon={ClipboardList}>
            <div className="overflow-x-auto">
-             <table className="w-full text-left text-[10px]">
+             <table className="w-full text-left text-[13px]">
                <thead>
                  <tr className="border-b border-white/10 text-secondary uppercase tracking-wider">
                    <th className="py-3 px-3">管理細項</th>
@@ -91,7 +91,7 @@ const Maintenance = () => (
                      { label: '維護車輛 / 機具', val: '9%', color: '#283618' },
                    ].map((item, i) => (
                      <div key={i} className="flex flex-col gap-1">
-                        <div className="flex justify-between text-[11px]">
+                        <div className="flex justify-between text-[13px]">
                           <span className="text-secondary">{item.label}</span>
                           <span className="text-ink font-bold font-mono">{item.val}</span>
                         </div>
@@ -114,13 +114,13 @@ const Maintenance = () => (
                    ].map((impact, i) => (
                      <div key={i} className={cn("p-4 rounded-2xl border border-white/5", impact.bg)}>
                         <div className="flex justify-between items-center">
-                           <span className="text-xs font-bold text-ink">{impact.label}</span>
-                           <span className={cn("text-lg font-black font-mono", impact.color)}>{impact.val} <span className="text-[10px]">tCO2e</span></span>
+                           <span className="text-[13px] font-bold text-ink">{impact.label}</span>
+                           <span className={cn("text-lg font-black font-mono", impact.color)}>{impact.val} <span className="text-[13px]">tCO2e</span></span>
                         </div>
                      </div>
                    ))}
                 </div>
-                <p className="text-[10px] text-secondary leading-relaxed italic border-t border-white/5 pt-4">
+                <p className="text-[13px] text-secondary leading-relaxed italic border-t border-white/5 pt-4">
                   「即使單年度差距看似有限，30 年累積下維護策略差異將顯著影響整體專案淨碳表現。」
                 </p>
              </div>
@@ -131,12 +131,12 @@ const Maintenance = () => (
       <div className="space-y-6">
         <Card title="維護情境摘要 Summary" icon={Info}>
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-y-3 text-[11px]">
+            <div className="grid grid-cols-2 gap-y-3 text-[13px]">
                <span className="text-secondary">評估年限</span><span className="text-ink font-bold text-right">30 年</span>
                <span className="text-secondary">顯示單位</span><span className="text-primary font-bold text-right">tCO2e/yr</span>
                <span className="text-secondary">資料狀態</span><span className="text-accent font-bold text-right">Prototype Mock</span>
             </div>
-            <p className="text-[10px] text-secondary/60 leading-relaxed italic border-t border-white/5 pt-3">
+            <p className="text-[13px] text-secondary/60 leading-relaxed italic border-t border-white/5 pt-3">
                「本頁反映營運維護階段的年度碳排差異，主要受修剪頻率、草坪管理、灌溉方式、補植率與維護機具使用影響。」
             </p>
           </div>
@@ -151,12 +151,12 @@ const Maintenance = () => (
                "乾旱與高溫將提高灌溉需求",
                "枝葉若未現地循環，清運碳排高於估算"
              ].map((r, i) => (
-               <div key={i} className="flex gap-2 items-start text-[10px] text-accent/80">
+               <div key={i} className="flex gap-2 items-start text-[13px] text-accent/80">
                   <span className="mt-1.5 w-1 h-1 rounded-full bg-accent shrink-0" />
                   <span>{r}</span>
                </div>
              ))}
-             <p className="text-[9px] text-secondary mt-2 opacity-60 leading-tight">
+             <p className="text-[13px] text-secondary mt-2 opacity-60 leading-tight">
                * 維護碳排不僅受設計影響，也高度取決於後續管理制度與方式。
              </p>
           </div>
@@ -170,7 +170,7 @@ const Maintenance = () => (
                { target: 'Scenario', text: '降低長期 B2-B4 排放' },
                { target: 'Reporting', text: '需獨立揭露年度運維排' },
              ].map((l, i) => (
-               <div key={i} className="flex items-center justify-between p-2 bg-white/5 rounded-lg border border-white/5 text-[10px]">
+               <div key={i} className="flex items-center justify-between p-2 bg-white/5 rounded-lg border border-white/5 text-[13px]">
                   <span className="text-primary font-bold">{l.target}</span>
                   <span className="text-secondary italic">{l.text}</span>
                </div>
@@ -187,7 +187,7 @@ const Maintenance = () => (
                "於 Soil 確認覆蓋物與循環策略",
                "於 Scenario 比較各方案效益",
              ].map((action, i) => (
-               <button key={i} className="w-full text-left p-2.5 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-xl text-[10px] text-primary font-bold transition-all">
+               <button key={i} className="w-full text-left p-2.5 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-xl text-[13px] text-primary font-bold transition-all">
                   {action}
                </button>
              ))}

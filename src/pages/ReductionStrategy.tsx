@@ -1,4 +1,4 @@
-import { TrendingDown, Compass, Layers, Zap, ClipboardList, Factory, Trees, FileText } from 'lucide-react';
+﻿import { TrendingDown, Compass, Layers, Zap, ClipboardList, Factory, Trees, FileText } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Card from '../components/ui/Card';
 import SectionHeading from '../components/ui/SectionHeading';
@@ -67,7 +67,7 @@ const ReductionStrategy = () => {
     <div className="space-y-6 animate-in fade-in duration-500 font-sans">
       <SectionHeading title="減碳策略建議與優先權" subtitle="Landscape Decarbonization Roadmap" />
 
-      <p className="text-[11px] text-secondary/80 leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5 italic">
+      <p className="text-[13px] text-secondary/80 leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5 italic">
         「Reduction 頁將 Dashboard、BOQ、Materials、Vegetation、Soil、Maintenance 與 Scenario 的分析結果轉換為可執行的減碳策略。策略優先級依減碳潛力、實施難度、成本影響、施工難度與長期維護綜合判斷。」
       </p>
 
@@ -82,10 +82,10 @@ const ReductionStrategy = () => {
           { label: '主要熱點', val: '鋪面/混凝土', unit: '', color: 'text-ink' },
         ].map((kpi, i) => (
           <div key={i} className="bg-white/5 p-4 rounded-2xl border border-white/5 flex flex-col justify-center">
-            <span className="text-[9px] text-secondary font-bold uppercase tracking-wider mb-1">{kpi.label}</span>
+            <span className="text-[13px] text-secondary font-bold uppercase tracking-wider mb-1">{kpi.label}</span>
             <div className="flex items-baseline gap-1">
               <span className={cn("text-xl font-black", kpi.color)}>{kpi.val}</span>
-              <span className="text-[9px] text-secondary/60">{kpi.unit}</span>
+              <span className="text-[13px] text-secondary/60">{kpi.unit}</span>
             </div>
           </div>
         ))}
@@ -96,25 +96,25 @@ const ReductionStrategy = () => {
            <div key={s.name} className="p-5 bg-card-bg border border-card-border rounded-3xl space-y-4 hover:border-primary/50 transition-all flex flex-col group">
               <div className="flex justify-between items-start">
                 <div className="p-2 bg-primary/10 rounded-lg text-primary group-hover:scale-110 transition-transform"><TrendingDown className="w-4 h-4" /></div>
-                <span className="text-[10px] font-bold bg-ink text-white px-2 py-0.5 rounded tracking-widest">{s.priority}</span>
+                <span className="text-[13px] font-bold bg-ink text-white px-2 py-0.5 rounded tracking-widest">{s.priority}</span>
               </div>
               <h4 className="font-bold text-sm text-ink leading-tight">{s.name}</h4>
 
               <div className="space-y-3 flex-1">
-                <div className="grid grid-cols-2 gap-2 text-[10px]">
+                <div className="grid grid-cols-2 gap-2 text-[13px]">
                    <div className="flex flex-col">
-                      <span className="text-secondary/60 text-[9px] uppercase font-bold">預估效益</span>
+                      <span className="text-secondary/60 text-[13px] uppercase font-bold">預估效益</span>
                       <span className="text-primary font-bold">{s.impact}</span>
                    </div>
                    <div className="flex flex-col">
-                      <span className="text-secondary/60 text-[9px] uppercase font-bold">實施難度</span>
+                      <span className="text-secondary/60 text-[13px] uppercase font-bold">實施難度</span>
                       <span className="text-accent font-bold">{s.effort}</span>
                    </div>
                 </div>
 
                 <div className="space-y-1.5 pt-3 border-t border-white/5">
-                   <div className="text-[9px]"><span className="text-secondary font-bold">影響：</span><span className="text-ink">{s.phase}</span></div>
-                   <div className="text-[9px]"><span className="text-secondary font-bold">附加：</span><span className="text-ink">{s.benefit}</span></div>
+                   <div className="text-[13px]"><span className="text-secondary font-bold">影響：</span><span className="text-ink">{s.phase}</span></div>
+                   <div className="text-[13px]"><span className="text-secondary font-bold">附加：</span><span className="text-ink">{s.benefit}</span></div>
                    <div className="grid grid-cols-3 gap-1 pt-1 opacity-80">
                       <div className="text-[8px] bg-white/5 px-1 py-0.5 rounded">成本: {s.cost}</div>
                       <div className="text-[8px] bg-white/5 px-1 py-0.5 rounded">施工: {s.construction}</div>
@@ -123,7 +123,7 @@ const ReductionStrategy = () => {
                 </div>
               </div>
 
-              <div className="pt-2 italic text-[9px] text-secondary/60 leading-tight border-t border-white/5 mt-auto">
+              <div className="pt-2 italic text-[13px] text-secondary/60 leading-tight border-t border-white/5 mt-auto">
                  {s.notes}
               </div>
            </div>
@@ -135,24 +135,24 @@ const ReductionStrategy = () => {
           <div className="space-y-6">
              <div className="relative h-64 border-l-2 border-b-2 border-white/10 ml-8 mb-8 mt-4">
                 {/* Labels */}
-                <div className="absolute -left-10 top-1/2 -rotate-90 text-[10px] font-bold text-secondary uppercase tracking-widest">減碳 / 碳匯效益</div>
-                <div className="absolute left-1/2 -bottom-8 -translate-x-1/2 text-[10px] font-bold text-secondary uppercase tracking-widest">實施難度 (左低右高)</div>
+                <div className="absolute -left-10 top-1/2 -rotate-90 text-[13px] font-bold text-secondary uppercase tracking-widest">減碳 / 碳匯效益</div>
+                <div className="absolute left-1/2 -bottom-8 -translate-x-1/2 text-[13px] font-bold text-secondary uppercase tracking-widest">實施難度 (左低右高)</div>
 
                 {/* Quadrant Lines */}
                 <div className="absolute inset-x-0 top-1/2 border-t border-white/5" />
                 <div className="absolute inset-y-0 left-1/2 border-l border-white/5" />
 
                 {/* Quadrant Names */}
-                <div className="absolute top-2 left-2 text-[9px] text-primary/40 font-bold">效益高 / 難度低：立即執行</div>
-                <div className="absolute top-2 right-2 text-[9px] text-primary/40 font-bold">效益高 / 難度高：設計深化</div>
-                <div className="absolute bottom-2 left-2 text-[9px] text-secondary/40 font-bold">效益低 / 難度低：快速優化</div>
-                <div className="absolute bottom-2 right-2 text-[9px] text-secondary/40 font-bold">效益低 / 難度高：暫緩</div>
+                <div className="absolute top-2 left-2 text-[13px] text-primary/40 font-bold">效益高 / 難度低：立即執行</div>
+                <div className="absolute top-2 right-2 text-[13px] text-primary/40 font-bold">效益高 / 難度高：設計深化</div>
+                <div className="absolute bottom-2 left-2 text-[13px] text-secondary/40 font-bold">效益低 / 難度低：快速優化</div>
+                <div className="absolute bottom-2 right-2 text-[13px] text-secondary/40 font-bold">效益低 / 難度高：暫緩</div>
 
                 {/* Strategy Bubbles */}
                 {enhancedStrategies.map(s => (
                   <div
                     key={s.id}
-                    className="absolute w-8 h-8 -ml-4 -mt-4 bg-primary/20 border border-primary/40 rounded-full flex items-center justify-center text-[10px] text-primary font-bold shadow-lg shadow-primary/10 hover:scale-125 transition-transform cursor-help"
+                    className="absolute w-8 h-8 -ml-4 -mt-4 bg-primary/20 border border-primary/40 rounded-full flex items-center justify-center text-[13px] text-primary font-bold shadow-lg shadow-primary/10 hover:scale-125 transition-transform cursor-help"
                     style={{ left: `${s.pos.x}%`, bottom: `${s.pos.y}%` }}
                     title={s.name}
                   >
@@ -162,7 +162,7 @@ const ReductionStrategy = () => {
              </div>
              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-white/5">
                 {enhancedStrategies.map(s => (
-                  <div key={s.id} className="text-[10px] text-secondary">
+                  <div key={s.id} className="text-[13px] text-secondary">
                     <span className="text-primary font-bold mr-1">#{s.id}</span> {s.name}
                   </div>
                 ))}
@@ -180,10 +180,10 @@ const ReductionStrategy = () => {
                   { name: 'Nature Positive 包', items: ['原生樹種', '雨水花園', '土壤有機質', '低維護植栽'] },
                 ].map((bundle, i) => (
                   <div key={i} className="p-3 bg-white/5 rounded-xl border border-white/5 space-y-2">
-                     <div className="text-[10px] font-bold text-primary uppercase">{bundle.name}</div>
+                     <div className="text-[13px] font-bold text-primary uppercase">{bundle.name}</div>
                      <div className="flex flex-wrap gap-1">
                         {bundle.items.map(item => (
-                          <span key={item} className="text-[10px] px-2 py-0.5 bg-white/5 border border-white/10 rounded text-secondary italic">
+                          <span key={item} className="text-[13px] px-2 py-0.5 bg-white/5 border border-white/10 rounded text-secondary italic">
                             {item}
                           </span>
                         ))}
@@ -204,7 +204,7 @@ const ReductionStrategy = () => {
                 ].map((action, i) => (
                   <button key={i} className="w-full flex items-center gap-3 p-3 bg-primary/10 hover:bg-primary/20 rounded-xl border border-primary/20 transition-all text-left">
                     <action.icon className="w-3 h-3 text-primary" />
-                    <span className="text-[11px] text-ink font-bold">{action.label}</span>
+                    <span className="text-[13px] text-ink font-bold">{action.label}</span>
                   </button>
                 ))}
              </div>

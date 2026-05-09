@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { AlertCircle, Zap, Info } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Card from '../components/ui/Card';
@@ -26,10 +26,10 @@ const BOQ = () => {
           { label: "待確認項目", val: "木材 / 再生", unit: "", color: "text-secondary" },
         ].map(kpi => (
           <div key={kpi.label} className="bg-card-bg p-4 rounded-2xl border border-card-border shadow-sm">
-            <p className="text-[9px] uppercase font-bold text-secondary mb-1">{kpi.label}</p>
+            <p className="text-[13px] uppercase font-bold text-secondary mb-1">{kpi.label}</p>
             <div className="flex items-baseline gap-1">
               <span className={cn("text-lg font-black", kpi.color || "text-ink")}>{kpi.val}</span>
-              <span className="text-[9px] text-secondary/60">{kpi.unit}</span>
+              <span className="text-[13px] text-secondary/60">{kpi.unit}</span>
             </div>
           </div>
         ))}
@@ -44,7 +44,7 @@ const BOQ = () => {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
-                  "px-4 py-2 rounded-xl text-[11px] font-bold transition-all border",
+                  "px-4 py-2 rounded-xl text-[13px] font-bold transition-all border",
                   activeCategory === cat
                     ? "bg-primary/20 text-primary border-primary/40 shadow-[0_0_15px_rgba(126,155,113,0.1)]"
                     : "bg-white/5 text-secondary border-white/5 hover:bg-white/10"
@@ -57,7 +57,7 @@ const BOQ = () => {
 
           <Card title="工程項目詳細清單 (Expanded BOQ Table)">
             <div className="overflow-x-auto min-h-[400px]">
-              <table className="w-full text-left text-[10px]">
+              <table className="w-full text-left text-[13px]">
                 <thead>
                   <tr className="border-b border-white/10 text-secondary uppercase tracking-tighter whitespace-nowrap">
                     <th className="py-3 px-3">工程分類</th>
@@ -108,7 +108,7 @@ const BOQ = () => {
                 </tbody>
               </table>
             </div>
-            <div className="mt-4 p-4 bg-sidebar/50 rounded-2xl border border-white/5 text-[10px] text-secondary leading-relaxed">
+            <div className="mt-4 p-4 bg-sidebar/50 rounded-2xl border border-white/5 text-[13px] text-secondary leading-relaxed">
               <span className="text-secondary/40 font-bold block mb-1 uppercase tracking-widest">資料狀態 Data Status</span>
               目前為 Prototype Mock Data。未來可由 CAD、Excel、BIM、GIS 或人工輸入匯入。材料係數將由 Materials 頁統一管理。
             </div>
@@ -126,7 +126,7 @@ const BOQ = () => {
                 { name: 'RC 花台', carbon: 80 },
               ].map((h, i) => (
                 <div key={i} className="flex flex-col gap-1">
-                  <div className="flex justify-between text-[11px]">
+                  <div className="flex justify-between text-[13px]">
                     <span className="text-ink font-medium">{h.name}</span>
                     <span className="text-accent font-mono font-bold">{h.carbon} t</span>
                   </div>
@@ -140,23 +140,23 @@ const BOQ = () => {
 
           <Card title="BOQ 碳排映射狀態" icon={Zap}>
             <div className="space-y-4">
-              <ul className="text-[11px] space-y-3">
+              <ul className="text-[13px] space-y-3">
                 <li className="flex justify-between border-b border-white/5 pb-2"><span className="text-secondary">數量來源</span><span className="text-ink">Mock v0.1</span></li>
                 <li className="flex justify-between border-b border-white/5 pb-2"><span className="text-secondary">已映射係數</span><span className="text-primary font-bold">75%</span></li>
                 <li className="flex justify-between border-b border-white/5 pb-2"><span className="text-secondary">高碳熱點</span><span className="text-accent">鋪面 / 混凝土</span></li>
               </ul>
               <div className="p-3 bg-white/5 rounded-xl border border-white/5 space-y-2">
-                 <span className="text-[10px] text-secondary/60 font-bold uppercase block">待確認項目</span>
-                 <p className="text-[10px] text-ink leading-tight">木材、再生材料、施工機具</p>
+                 <span className="text-[13px] text-secondary/60 font-bold uppercase block">待確認項目</span>
+                 <p className="text-[13px] text-ink leading-tight">木材、再生材料、施工機具</p>
               </div>
-              <button className="w-full py-2.5 bg-primary/10 border border-primary/20 text-primary rounded-xl text-[10px] font-bold hover:bg-primary hover:text-bg transition-all">
+              <button className="w-full py-2.5 bg-primary/10 border border-primary/20 text-primary rounded-xl text-[13px] font-bold hover:bg-primary hover:text-bg transition-all">
                 前往 Materials 確認係數
               </button>
             </div>
           </Card>
 
           <Card title="材料碳足跡提醒" icon={Info}>
-            <div className="space-y-4 text-[10px] text-secondary leading-relaxed">
+            <div className="space-y-4 text-[13px] text-secondary leading-relaxed">
               <div className="flex gap-2">
                 <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1 shrink-0" />
                 <p>材料排放需拆分 A1-A3 材料生產、A4 運輸、A5 施工安裝。</p>

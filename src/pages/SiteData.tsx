@@ -1,4 +1,4 @@
-import {
+﻿import {
   ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar,
 } from 'recharts';
 import {
@@ -29,7 +29,7 @@ const SiteData = () => (
             <div key={item.label} className="bg-card-bg p-3 rounded-2xl border border-card-border flex flex-col gap-1 shadow-sm">
               <div className="flex items-center gap-1.5 text-secondary/60">
                 <item.icon className="w-3 h-3" />
-                <span className="text-[9px] font-bold uppercase tracking-wider">{item.label}</span>
+                <span className="text-[13px] font-bold uppercase tracking-wider">{item.label}</span>
               </div>
               <span className={cn("text-base font-bold", item.color || "text-ink")}>{item.val}</span>
             </div>
@@ -38,20 +38,20 @@ const SiteData = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card title="既有植栽 Existing Vegetation" icon={Trees}>
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4 text-[11px]">
+              <div className="grid grid-cols-2 gap-4 text-[13px]">
                  <div><span className="text-secondary block">既有喬木</span><span className="text-ink font-bold">86 株</span></div>
                  <div><span className="text-secondary block">建議保留</span><span className="text-primary font-bold">72 株</span></div>
                  <div><span className="text-secondary block">既有樹冠覆蓋</span><span className="text-ink font-bold">18%</span></div>
                  <div><span className="text-secondary block">移植 / 移除風險</span><span className="text-accent font-bold">中</span></div>
               </div>
-              <p className="text-[10px] text-secondary leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5">
+              <p className="text-[13px] text-secondary leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5">
                 成熟喬木保留可降低碳匯抵平時間風險，並減少新植樹前期碳匯不足的問題。
               </p>
             </div>
           </Card>
           <Card title="土壤與水文 Soil & Hydrology" icon={Activity}>
              <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-[11px]">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-[13px]">
                  <div className="flex justify-between border-b border-white/5 pb-1"><span className="text-secondary">土壤排水性</span><span className="text-ink">中等</span></div>
                  <div className="flex justify-between border-b border-white/5 pb-1"><span className="text-secondary">土壤壓實風險</span><span className="text-accent">中高</span></div>
                  <div className="flex justify-between border-b border-white/5 pb-1"><span className="text-secondary">表土保留潛力</span><span className="text-primary">中</span></div>
@@ -59,7 +59,7 @@ const SiteData = () => (
                  <div className="flex justify-between border-b border-white/5 pb-1"><span className="text-secondary">雨水入滲潛力</span><span className="text-primary">中高</span></div>
                  <div className="flex justify-between border-b border-white/5 pb-1"><span className="text-secondary">灌溉依賴風險</span><span className="text-primary">中低</span></div>
               </div>
-              <p className="text-[10px] text-secondary leading-relaxed italic border-t border-white/5 pt-3">
+              <p className="text-[13px] text-secondary leading-relaxed italic border-t border-white/5 pt-3">
                 「年降雨量充足，但若土壤壓實或硬鋪面比例偏高，將降低入滲與植栽生長效益，並可能提高維護補植需求。」
               </p>
             </div>
@@ -76,7 +76,7 @@ const SiteData = () => (
             ].map((risk, i) => (
               <div key={i} className="flex items-start gap-3 p-3 bg-red-400/5 rounded-xl border border-red-400/10">
                 <AlertCircle className="w-3 h-3 text-red-400/60 mt-0.5 shrink-0" />
-                <span className="text-[10px] text-secondary leading-tight">{risk}</span>
+                <span className="text-[13px] text-secondary leading-tight">{risk}</span>
               </div>
             ))}
           </div>
@@ -100,7 +100,7 @@ const SiteData = () => (
                 </RadarChart>
               </ResponsiveContainer>
             </div>
-            <p className="text-[9px] text-secondary/60 leading-relaxed italic text-center px-2">
+            <p className="text-[13px] text-secondary/60 leading-relaxed italic text-center px-2">
               「雷達圖用於快速判斷基地在植栽碳匯、土壤碳、水文韌性、熱島改善與維護壓力上的相對表現。分數為 Prototype Mock Data，未來可由 GIS、現地調查與維護紀錄校正。」
             </p>
           </div>
@@ -116,19 +116,19 @@ const SiteData = () => (
                  { label: "熱島改善潛力", val: "高", color: "text-primary" },
                ].map(p => (
                  <div key={p.label} className="flex justify-between items-center bg-white/5 p-2 px-3 rounded-lg border border-white/5">
-                   <span className="text-[11px] text-secondary">{p.label}</span>
-                   <span className={cn("text-[11px] font-bold", p.color)}>{p.val}</span>
+                   <span className="text-[13px] text-secondary">{p.label}</span>
+                   <span className={cn("text-[13px] font-bold", p.color)}>{p.val}</span>
                  </div>
                ))}
             </div>
-            <p className="text-[10px] text-primary/80 leading-relaxed bg-primary/5 p-3 rounded-xl border border-primary/10 font-medium">
+            <p className="text-[13px] text-primary/80 leading-relaxed bg-primary/5 p-3 rounded-xl border border-primary/10 font-medium">
               「基地具備中高植栽碳匯潛力，但土壤壓實、硬鋪面比例與後續維護頻率將影響 30 年淨碳表現。」
             </p>
           </div>
         </Card>
         <Card title="資料狀態 Data Status" icon={Info}>
           <div className="space-y-3">
-             <div className="text-[10px] text-secondary space-y-2">
+             <div className="text-[13px] text-secondary space-y-2">
                 <div className="flex justify-between border-b border-white/5 pb-1"><span>基地面積</span><span className="font-bold text-ink">Mock / CAD, GIS 導入</span></div>
                 <div className="flex justify-between border-b border-white/5 pb-1"><span>綠覆率</span><span className="font-bold text-ink">Mock / 人工估算</span></div>
                 <div className="flex justify-between border-b border-white/5 pb-1"><span>氣溫雨量</span><span className="font-bold text-ink">Mock / 氣象資料導入</span></div>

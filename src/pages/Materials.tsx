@@ -1,4 +1,4 @@
-import { AlertCircle, Zap, Info, TrendingDown, FileText } from 'lucide-react';
+﻿import { AlertCircle, Zap, Info, TrendingDown, FileText } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Card from '../components/ui/Card';
 import SectionHeading from '../components/ui/SectionHeading';
@@ -9,7 +9,7 @@ const Materials = () => (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
       <Card title="材料碳排排行與各階段拆解" className="lg:col-span-3">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-[10px]">
+          <table className="w-full text-left text-[13px]">
             <thead>
               <tr className="border-b border-white/10 text-secondary uppercase tracking-widest whitespace-nowrap">
                 <th className="py-4 px-3">排名</th>
@@ -43,7 +43,7 @@ const Materials = () => (
                   <td className="py-4 px-3 text-secondary">{row.life}yr</td>
                   <td className="py-4 px-3 text-right font-bold text-accent">{row.carbon}</td>
                   <td className="py-4 px-3">
-                    <span className="px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-[9px] font-bold">{row.grade}</span>
+                    <span className="px-1.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-[13px] font-bold">{row.grade}</span>
                   </td>
                   <td className="py-4 px-3 text-primary/80 italic">{row.alt}</td>
                 </tr>
@@ -56,11 +56,11 @@ const Materials = () => (
       <div className="space-y-6">
         <Card title="材料熱點摘要 Hotspots" icon={AlertCircle}>
           <div className="space-y-3">
-            <div className="flex justify-between text-[11px]"><span className="text-secondary">最高排放材料</span><span className="text-ink font-bold">C210 混凝土</span></div>
-            <div className="flex justify-between text-[11px]"><span className="text-secondary">次高排放材料</span><span className="text-ink font-bold">進口花崗石</span></div>
-            <div className="flex justify-between text-[11px]"><span className="text-secondary">前兩項合計占比</span><span className="text-accent font-bold">63%</span></div>
-            <div className="flex justify-between text-[11px] border-t border-white/5 pt-2"><span className="text-secondary">主要熱點階段</span><span className="text-primary font-bold">A1-A3 生產</span></div>
-            <div className="flex justify-between text-[11px]"><span className="text-secondary">次要熱點階段</span><span className="text-primary font-bold">A4 運輸</span></div>
+            <div className="flex justify-between text-[13px]"><span className="text-secondary">最高排放材料</span><span className="text-ink font-bold">C210 混凝土</span></div>
+            <div className="flex justify-between text-[13px]"><span className="text-secondary">次高排放材料</span><span className="text-ink font-bold">進口花崗石</span></div>
+            <div className="flex justify-between text-[13px]"><span className="text-secondary">前兩項合計占比</span><span className="text-accent font-bold">63%</span></div>
+            <div className="flex justify-between text-[13px] border-t border-white/5 pt-2"><span className="text-secondary">主要熱點階段</span><span className="text-primary font-bold">A1-A3 生產</span></div>
+            <div className="flex justify-between text-[13px]"><span className="text-secondary">次要熱點階段</span><span className="text-primary font-bold">A4 運輸</span></div>
           </div>
         </Card>
 
@@ -74,13 +74,13 @@ const Materials = () => (
             ].map(opt => (
               <div key={opt.label} className="p-3 bg-white/5 border border-white/5 rounded-xl flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] text-secondary font-bold uppercase">{opt.label}</div>
-                  <div className="text-xs text-ink">{opt.alt}</div>
+                  <div className="text-[13px] text-secondary font-bold uppercase">{opt.label}</div>
+                  <div className="text-[13px] text-ink">{opt.alt}</div>
                 </div>
-                <div className="text-primary font-bold text-xs">{opt.saving}</div>
+                <div className="text-primary font-bold text-[13px]">{opt.saving}</div>
               </div>
             ))}
-            <button className="w-full py-3 bg-primary text-bg rounded-xl text-xs font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+            <button className="w-full py-3 bg-primary text-bg rounded-xl text-[13px] font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20">
               套用所有減碳策略
             </button>
           </div>
@@ -88,20 +88,20 @@ const Materials = () => (
 
         <Card title="材料替代效益預覽" icon={TrendingDown}>
            <div className="space-y-3">
-              <div className="flex justify-between text-[11px]"><span className="text-secondary">基準方案總排</span><span className="text-ink">1,285 t</span></div>
-              <div className="flex justify-between text-[11px]"><span className="text-secondary">減碳策略合計</span><span className="text-primary font-bold">-176 t</span></div>
-              <div className="flex justify-between text-[11px] border-t border-white/5 pt-2"><span className="text-secondary">優化後總量</span><span className="text-primary font-black">1,109 t</span></div>
+              <div className="flex justify-between text-[13px]"><span className="text-secondary">基準方案總排</span><span className="text-ink">1,285 t</span></div>
+              <div className="flex justify-between text-[13px]"><span className="text-secondary">減碳策略合計</span><span className="text-primary font-bold">-176 t</span></div>
+              <div className="flex justify-between text-[13px] border-t border-white/5 pt-2"><span className="text-secondary">優化後總量</span><span className="text-primary font-black">1,109 t</span></div>
            </div>
         </Card>
 
         <Card title="係數信心等級 Factor" icon={Info}>
           <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-4 text-[11px]">
+            <div className="grid grid-cols-2 gap-4 text-[13px]">
                <div><span className="text-secondary block">已建立係數</span><span className="text-ink font-bold">4 / 8</span></div>
                <div><span className="text-secondary block">平均可信度</span><span className="text-accent font-bold">B-</span></div>
                <div><span className="text-secondary block">Mock比例</span><span className="text-ink font-bold">50%</span></div>
             </div>
-            <div className="p-3 bg-white/5 rounded-xl border border-white/5 text-[10px] text-secondary">
+            <div className="p-3 bg-white/5 rounded-xl border border-white/5 text-[13px] text-secondary">
                <span className="block font-bold mb-1 uppercase tracking-widest opacity-50">待補資料</span>
                木材、再生材料、施工損耗率
             </div>
@@ -109,7 +109,7 @@ const Materials = () => (
         </Card>
 
         <Card title="生命週期分析提醒" icon={FileText}>
-          <div className="space-y-3 text-[10px] text-secondary/80 leading-relaxed italic">
+          <div className="space-y-3 text-[13px] text-secondary/80 leading-relaxed italic">
             <p>• 材料碳排需拆分 A1-A3、A4、A5</p>
             <p>• 壽命不足評估年限者需納入 B4 更換</p>
             <p>• 木材生物碳儲存應與材料排放分開顯示</p>

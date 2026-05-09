@@ -1,4 +1,4 @@
-import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from 'recharts';
+﻿import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { PieChart as PieChartIcon, Box, Calculator, ClipboardList, Zap, TrendingUp, AlertCircle, ShieldCheck, Info } from 'lucide-react';
 import * as mock from '../data/mockData';
 import { cn } from '../lib/utils';
@@ -8,7 +8,7 @@ import SectionHeading from '../components/ui/SectionHeading';
 const Engine = () => (
   <div className="space-y-6 animate-in fade-in duration-500 font-sans">
     <SectionHeading title="碳排計算引擎與邏輯" subtitle="NCMS Engine v0.1 Calculation Methodology" />
-    <p className="text-[11px] text-secondary/80 leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5 italic">
+    <p className="text-[13px] text-secondary/80 leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5 italic">
       「Engine v0.1 將 Boundary、BOQ、Materials、Vegetation、Soil 與 Maintenance 的輸入整合為生命週期排放、碳匯、淨碳曲線與抵平年份；目前結果為 Prototype Mock Data，僅供設計階段模擬。」
     </p>
 
@@ -23,20 +23,20 @@ const Engine = () => (
                     <Pie data={mock.emissionScopeData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} paddingAngle={5}>
                       {mock.emissionScopeData.map((_, i) => <Cell key={i} fill={['#7E9B71', '#DDA15E', '#BC6C25', '#A8B8A0', '#4A6741', '#606C38', '#283618'][i % 7]} />)}
                     </Pie>
-                    <Tooltip contentStyle={{ backgroundColor: '#1D2319', border: 'none', fontSize: '10px' }} />
+                    <Tooltip contentStyle={{ backgroundColor: '#1D2319', border: 'none', fontSize: '13px' }} />
                   </PieChart>
                 </ResponsiveContainer>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 {mock.emissionScopeData.map((d, i) => (
-                  <div key={i} className="flex items-center gap-2 text-[10px]">
+                  <div key={i} className="flex items-center gap-2 text-[13px]">
                     <div className="w-2 h-2 rounded-full" style={{ backgroundColor: ['#7E9B71', '#DDA15E', '#BC6C25', '#A8B8A0', '#4A6741', '#606C38', '#283618'][i % 7] }} />
                     <span className="text-secondary">{d.name}</span>
                     <span className="text-ink font-bold ml-auto">{d.value}%</span>
                   </div>
                 ))}
               </div>
-              <p className="text-[10px] text-secondary/60 leading-relaxed text-center italic border-t border-white/5 pt-4">
+              <p className="text-[13px] text-secondary/60 leading-relaxed text-center italic border-t border-white/5 pt-4">
                 「圓環圖顯示生命週期各階段對總排放的相對貢獻；碳匯項目另以負向抵減或獨立曲線呈現，避免與排放階段混淆。」
               </p>
             </div>
@@ -45,8 +45,8 @@ const Engine = () => (
           <Card title="計算範圍 Calculation Scope" icon={Box}>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-3">
-                <div className="text-[10px] text-primary font-bold uppercase tracking-wider">納入 (Included)</div>
-                <ul className="text-[10px] text-secondary space-y-1.5 list-disc list-inside">
+                <div className="text-[13px] text-primary font-bold uppercase tracking-wider">納入 (Included)</div>
+                <ul className="text-[13px] text-secondary space-y-1.5 list-disc list-inside">
                   <li>A1-A3 材料生產</li>
                   <li>A4 材料運輸</li>
                   <li>A5 施工安裝</li>
@@ -58,8 +58,8 @@ const Engine = () => (
                 </ul>
               </div>
               <div className="space-y-3">
-                <div className="text-[10px] text-accent font-bold uppercase tracking-wider">排除 (Excluded)</div>
-                <ul className="text-[10px] text-secondary space-y-1.5 list-disc list-inside opacity-60">
+                <div className="text-[13px] text-accent font-bold uppercase tracking-wider">排除 (Excluded)</div>
+                <ul className="text-[13px] text-secondary space-y-1.5 list-disc list-inside opacity-60">
                   <li>外部碳抵換</li>
                   <li>熱島降溫效益</li>
                   <li>第三方查證庫</li>
@@ -71,7 +71,7 @@ const Engine = () => (
         </div>
 
         <Card title="核心計算公式說明 Core Formulas" icon={Calculator}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-[10px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-[13px]">
             <div className="p-3 bg-white/5 rounded-xl border border-white/5 space-y-2">
               <p className="text-primary font-bold">材料碳排 (E_material)</p>
               <p className="text-ink leading-relaxed">Σ(Quantity_i × EmissionFactor_i × LossRate_i)</p>
@@ -105,7 +105,7 @@ const Engine = () => (
 
         <Card title="輸入來源對照 Input Mapping" icon={ClipboardList}>
            <div className="overflow-x-auto">
-             <table className="w-full text-left text-[10px]">
+             <table className="w-full text-left text-[13px]">
                <thead>
                  <tr className="border-b border-white/10 text-secondary uppercase tracking-widest">
                    <th className="py-3 px-3 min-w-[120px]">輸入資料</th>
@@ -144,7 +144,7 @@ const Engine = () => (
                'Soil 土壤碳', 'Maintenance 維護碳排', 'Engine 整合計算', 'Scenario 情境比較', 'Reporting 報表輸出'
              ].map((flow, i) => (
                <div key={i} className="flex flex-col items-center">
-                 <div className="w-full py-2 px-3 bg-white/5 rounded-lg border border-white/5 text-[9px] text-secondary text-center hover:bg-primary/10 hover:text-primary transition-all cursor-default">
+                 <div className="w-full py-2 px-3 bg-white/5 rounded-lg border border-white/5 text-[13px] text-secondary text-center hover:bg-primary/10 hover:text-primary transition-all cursor-default">
                     {flow}
                  </div>
                  {i < 9 && <div className="h-2 border-l border-white/10 my-0.5" />}
@@ -158,7 +158,7 @@ const Engine = () => (
               {[
                 '生命週期總碳排', '各階段碳排分析', '植栽碳匯總量', '土壤碳匯潛力', '淨碳排放曲線', '碳抵平預估年份', '工程材料碳熱點', '數據來源可信度'
               ].map(output => (
-                <div key={output} className="flex items-center gap-2 text-[10px] p-2 bg-white/5 rounded-lg border border-white/5">
+                <div key={output} className="flex items-center gap-2 text-[13px] p-2 bg-white/5 rounded-lg border border-white/5">
                   <div className="w-1 h-1 rounded-full bg-primary" />
                   <span className="text-secondary">{output}</span>
                 </div>
@@ -176,13 +176,13 @@ const Engine = () => (
                   { label: '維護頻率', impact: 'B2-B4 排放' },
                   { label: '土壤碳變化率', impact: '長期累積碳匯' },
                 ].map(item => (
-                  <div key={item.label} className="text-[10px] flex justify-between bg-white/5 p-2 rounded-lg">
+                  <div key={item.label} className="text-[13px] flex justify-between bg-white/5 p-2 rounded-lg">
                     <span className="text-secondary">{item.label}</span>
                     <span className="text-accent font-bold">敏感度高</span>
                   </div>
                 ))}
              </div>
-             <p className="text-[10px] text-secondary/60 leading-relaxed italic border-t border-white/5 pt-3">
+             <p className="text-[13px] text-secondary/60 leading-relaxed italic border-t border-white/5 pt-3">
                「Engine v0.1 使用中位情境與 mock data，結果應視為設計階段敏感度模擬，而非正式查證結果。」
              </p>
           </div>
@@ -191,10 +191,10 @@ const Engine = () => (
         <Card title="資料可信度 Data Confidence" icon={ShieldCheck}>
            <div className="space-y-4">
               <div className="flex flex-col items-center p-4 bg-primary/10 rounded-2xl border border-primary/20">
-                 <div className="text-[10px] uppercase font-bold text-secondary mb-1">目前平均可信度</div>
+                 <div className="text-[13px] uppercase font-bold text-secondary mb-1">目前平均可信度</div>
                  <div className="text-4xl font-black text-primary">B-</div>
               </div>
-              <ul className="text-[10px] space-y-2">
+              <ul className="text-[13px] space-y-2">
                 <li className="flex justify-between border-b border-white/5 pb-1"><span className="text-secondary">材料係數</span><span className="text-ink font-bold">部分 Mock</span></li>
                 <li className="flex justify-between border-b border-white/5 pb-1"><span className="text-secondary">植栽模型</span><span className="text-ink font-bold">簡化生長曲線</span></li>
                 <li className="flex justify-between border-b border-white/5 pb-1"><span className="text-secondary">土壤模型</span><span className="text-ink font-bold">簡化 SOC</span></li>
@@ -204,7 +204,7 @@ const Engine = () => (
         </Card>
 
         <Card title="方法論限制 Method Limits" icon={Info}>
-           <div className="space-y-3 text-[10px] text-secondary leading-relaxed italic opacity-70">
+           <div className="space-y-3 text-[13px] text-secondary leading-relaxed italic opacity-70">
               <p>• 本頁為 Prototype v0.1 計算邏輯</p>
               <p>• 未接入正式 EPD / 官方係數庫</p>
               <p>• 未進行第三方查證</p>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { FileText, Layers, ClipboardList, Trees, Map, AlertCircle, Database, Settings, Wrench } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useProject } from '../store/projectStore';
@@ -13,7 +13,7 @@ const LabeledInput = ({ label, value, onChange, unit, type = 'text', placeholder
   unit?: string; type?: string; placeholder?: string;
 }) => (
   <div className="space-y-1.5">
-    <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">{label}</label>
+    <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">{label}</label>
     <div className="flex items-center gap-2">
       <input
         type={type}
@@ -22,7 +22,7 @@ const LabeledInput = ({ label, value, onChange, unit, type = 'text', placeholder
         placeholder={placeholder}
         className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-ink outline-none focus:border-primary/50 focus:bg-white/10 transition-all"
       />
-      {unit && <span className="text-[10px] text-secondary/60 shrink-0">{unit}</span>}
+      {unit && <span className="text-[13px] text-secondary/60 shrink-0">{unit}</span>}
     </div>
   </div>
 );
@@ -71,28 +71,28 @@ const DataInput = () => {
       <div className="flex items-start justify-between flex-wrap gap-4">
         <SectionHeading title="數據輸入 Data Input" subtitle="手動輸入專案數值，覆寫 Mock Data" />
         <div className="flex items-center gap-2 flex-wrap">
-          {saveMsg && <span className="text-[10px] text-primary font-bold animate-pulse">{saveMsg}</span>}
+          {saveMsg && <span className="text-[13px] text-primary font-bold animate-pulse">{saveMsg}</span>}
           <button onClick={handleLoad}
-            className="px-3 py-1.5 rounded-lg text-[10px] font-bold border border-white/10 bg-white/5 text-secondary hover:bg-white/10 transition-all">
+            className="px-3 py-1.5 rounded-lg text-[13px] font-bold border border-white/10 bg-white/5 text-secondary hover:bg-white/10 transition-all">
             載入草稿
           </button>
           <button onClick={handleSave}
-            className="px-3 py-1.5 rounded-lg text-[10px] font-bold border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 transition-all">
+            className="px-3 py-1.5 rounded-lg text-[13px] font-bold border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 transition-all">
             儲存草稿
           </button>
           <button onClick={reset}
-            className="px-3 py-1.5 rounded-lg text-[10px] font-bold border border-accent/20 bg-accent/5 text-accent hover:bg-accent/10 transition-all">
+            className="px-3 py-1.5 rounded-lg text-[13px] font-bold border border-accent/20 bg-accent/5 text-accent hover:bg-accent/10 transition-all">
             重置 Mock
           </button>
           <button onClick={clear}
-            className="px-3 py-1.5 rounded-lg text-[10px] font-bold border border-white/5 bg-white/5 text-secondary/50 hover:text-secondary transition-all">
+            className="px-3 py-1.5 rounded-lg text-[13px] font-bold border border-white/5 bg-white/5 text-secondary/50 hover:text-secondary transition-all">
             清除本機
           </button>
         </div>
       </div>
 
       {/* Status bar */}
-      <div className="flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-xl text-[10px] flex-wrap">
+      <div className="flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-xl text-[13px] flex-wrap">
         <span className={cn('w-2 h-2 rounded-full shrink-0', state.dataSource === 'mock' ? 'bg-accent' : 'bg-primary animate-pulse')} />
         <span className="text-secondary">資料狀態：<span className="text-ink font-bold">{state.dataSource === 'mock' ? 'Mock Data（尚未覆寫）' : '已有自訂輸入'}</span></span>
         {state.lastSaved && <span className="text-secondary/50">上次儲存：{new Date(state.lastSaved).toLocaleString('zh-TW')}</span>}
@@ -108,10 +108,10 @@ const DataInput = () => {
           { label: '喬木總數', val: computed.totalTrees.toString(), unit: '株', color: 'text-primary' },
         ].map(k => (
           <div key={k.label} className="bg-card-bg p-4 rounded-2xl border border-card-border">
-            <p className="text-[9px] uppercase font-bold text-secondary tracking-widest mb-1">{k.label}</p>
+            <p className="text-[13px] uppercase font-bold text-secondary tracking-widest mb-1">{k.label}</p>
             <div className="flex items-baseline gap-1">
               <span className={`text-xl font-black ${k.color}`}>{k.val}</span>
-              <span className="text-[9px] text-secondary/60">{k.unit}</span>
+              <span className="text-[13px] text-secondary/60">{k.unit}</span>
             </div>
           </div>
         ))}
@@ -121,7 +121,7 @@ const DataInput = () => {
       <div className="flex flex-wrap gap-2">
         {INPUT_TABS.map((t, i) => (
           <button key={t} onClick={() => setTab(i)}
-            className={cn('px-4 py-2 rounded-xl text-[11px] font-bold border transition-all',
+            className={cn('px-4 py-2 rounded-xl text-[13px] font-bold border transition-all',
               tab === i ? 'bg-primary/20 text-primary border-primary/40' : 'bg-white/5 text-secondary border-white/5 hover:bg-white/10'
             )}>
             {t}
@@ -141,7 +141,7 @@ const DataInput = () => {
               <LabeledInput label="基地面積" value={String(proj.siteAreaM2)} unit="m²" type="number"
                 onChange={v => dispatch({ type: 'SET_PROJECT_INFO', payload: { siteAreaM2: parseFloat(v) || 0 } })} />
               <div className="space-y-1.5">
-                <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">評估年限</label>
+                <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">評估年限</label>
                 <select value={proj.assessmentYears}
                   onChange={e => dispatch({ type: 'SET_PROJECT_INFO', payload: { assessmentYears: parseInt(e.target.value) as 10|20|30|50 } })}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-ink outline-none focus:border-primary/50">
@@ -153,7 +153,7 @@ const DataInput = () => {
               <LabeledInput label="設計階段" value={proj.designStage}
                 onChange={v => dispatch({ type: 'SET_PROJECT_INFO', payload: { designStage: v } })} />
               <div className="sm:col-span-2 space-y-1.5">
-                <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">專案類型</label>
+                <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">專案類型</label>
                 <select value={proj.projectType}
                   onChange={e => dispatch({ type: 'SET_PROJECT_INFO', payload: { projectType: e.target.value } })}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-ink outline-none focus:border-primary/50">
@@ -171,7 +171,7 @@ const DataInput = () => {
                   className={cn('flex items-center justify-between p-3 rounded-xl border transition-all text-left',
                     boundary[mod.key] ? 'bg-primary/10 border-primary/40 text-primary' : 'bg-white/5 border-white/5 text-secondary'
                   )}>
-                  <span className="text-xs font-bold">{mod.label}</span>
+                  <span className="text-[13px] font-bold">{mod.label}</span>
                   <div className={cn('w-4 h-4 rounded border-2 flex items-center justify-center shrink-0',
                     boundary[mod.key] ? 'border-primary bg-primary' : 'border-white/20')}>
                     {boundary[mod.key] && <div className="w-2 h-2 bg-white rounded-sm" />}
@@ -206,7 +206,7 @@ const DataInput = () => {
           <Card title="工程數量明細 BOQ Items" icon={ClipboardList}>
             <div className="space-y-4">
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-[10px]">
+                <table className="w-full text-left text-[13px]">
                   <thead>
                     <tr className="border-b border-white/10 text-secondary uppercase tracking-tight whitespace-nowrap">
                       <th className="py-2 px-2">分類</th>
@@ -233,7 +233,7 @@ const DataInput = () => {
                         <td className="py-1.5 px-2">
                           <select value={row.conf}
                             onChange={e => dispatch({ type: 'UPDATE_BOQ_ITEM', id: row.id, field: 'conf', value: e.target.value })}
-                            className="bg-white/5 border border-white/10 rounded px-1.5 py-0.5 text-[9px] text-ink outline-none">
+                            className="bg-white/5 border border-white/10 rounded px-1.5 py-0.5 text-[13px] text-ink outline-none">
                             {['A', 'B', 'C', 'D'].map(g => <option key={g}>{g}</option>)}
                           </select>
                         </td>
@@ -248,14 +248,14 @@ const DataInput = () => {
               </div>
               <div className="flex items-center justify-between pt-2 border-t border-white/5">
                 <button onClick={() => dispatch({ type: 'ADD_BOQ_ITEM' })}
-                  className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-xl text-[11px] text-primary font-bold transition-all">
+                  className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-xl text-[13px] text-primary font-bold transition-all">
                   <span className="text-base leading-none">+</span> 新增工程項目
                 </button>
-                <div className="text-[11px] text-secondary">
+                <div className="text-[13px] text-secondary">
                   明細合計：<span className="text-accent font-bold">{computed.totalInitialCarbon.toLocaleString()} tCO2e</span>
                 </div>
               </div>
-              <p className="text-[9px] text-secondary/40 italic">點擊儲存格直接編輯，滑過列顯示刪除按鈕。明細合計自動連動 Dashboard。</p>
+              <p className="text-[13px] text-secondary/40 italic">點擊儲存格直接編輯，滑過列顯示刪除按鈕。明細合計自動連動 Dashboard。</p>
             </div>
           </Card>
         </div>
@@ -267,7 +267,7 @@ const DataInput = () => {
           <Card title="植栽數量輸入" icon={Trees}>
             <div className="space-y-4">
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-[10px]">
+                <table className="w-full text-left text-[13px]">
                   <thead>
                     <tr className="border-b border-white/10 text-secondary uppercase tracking-tight">
                       <th className="py-2 px-2">植栽類型</th>
@@ -291,7 +291,7 @@ const DataInput = () => {
                   </tbody>
                 </table>
               </div>
-              <div className="pt-2 border-t border-white/5 text-[11px] text-secondary flex justify-between">
+              <div className="pt-2 border-t border-white/5 text-[13px] text-secondary flex justify-between">
                 <span>{proj.assessmentYears}yr 碳匯小計</span>
                 <span className="text-primary font-bold">{computed.totalSequestration30Y.toLocaleString()} tCO2e</span>
               </div>
@@ -312,7 +312,7 @@ const DataInput = () => {
                 onChange={v => dispatch({ type: 'SET_VEGETATION', payload: { thirtyYearSequestration: parseFloat(v) || 0 } })} />
               <LabeledInput label="高固碳樹種佔比" value={String(veg.highSequestrationSpeciesRatio)} unit="%" type="number"
                 onChange={v => dispatch({ type: 'SET_VEGETATION', payload: { highSequestrationSpeciesRatio: parseFloat(v) || 0 } })} />
-              <div className="p-3 bg-primary/5 border border-primary/10 rounded-xl space-y-2 text-[11px]">
+              <div className="p-3 bg-primary/5 border border-primary/10 rounded-xl space-y-2 text-[13px]">
                 <div className="flex justify-between">
                   <span className="text-secondary">喬木總數（新植＋保留）</span>
                   <span className="text-ink font-bold">{computed.totalTrees} 株</span>
@@ -346,7 +346,7 @@ const DataInput = () => {
           <Card title="土壤擾動風險" icon={AlertCircle}>
             <div className="space-y-4">
               <div className="space-y-1.5">
-                <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">壓實風險等級</label>
+                <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">壓實風險等級</label>
                 <div className="flex gap-2">
                   {(['low', 'medium', 'high'] as const).map(level => {
                     const labels = { low: '低', medium: '中', high: '高' };
@@ -354,7 +354,7 @@ const DataInput = () => {
                     return (
                       <button key={level}
                         onClick={() => dispatch({ type: 'SET_SOIL', payload: { compactionRisk: level } })}
-                        className={cn('flex-1 py-2 rounded-xl border text-xs font-bold transition-all',
+                        className={cn('flex-1 py-2 rounded-xl border text-[13px] font-bold transition-all',
                           soil.compactionRisk === level ? active[level] : 'bg-white/5 border-white/5 text-secondary hover:bg-white/10'
                         )}>
                         {labels[level]}
@@ -363,7 +363,7 @@ const DataInput = () => {
                   })}
                 </div>
               </div>
-              <div className="p-3 bg-white/5 border border-white/10 rounded-xl space-y-2 text-[11px]">
+              <div className="p-3 bg-white/5 border border-white/10 rounded-xl space-y-2 text-[13px]">
                 <div className="flex justify-between">
                   <span className="text-secondary">土壤固碳貢獻（{proj.assessmentYears}yr）</span>
                   <span className="text-primary font-bold">
@@ -371,7 +371,7 @@ const DataInput = () => {
                   </span>
                 </div>
               </div>
-              <div className="p-3 bg-accent/5 border border-accent/10 rounded-xl text-[10px] text-accent/80 italic">
+              <div className="p-3 bg-accent/5 border border-accent/10 rounded-xl text-[13px] text-accent/80 italic">
                 * 土壤固碳模型為 Prototype 簡化估算，非正式碳盤查數值。
               </div>
             </div>
@@ -392,7 +392,7 @@ const DataInput = () => {
                   )}>
                   <div>
                     <span className={cn('text-sm font-bold', maint.selectedScenario === scenario.id ? 'text-primary' : 'text-ink')}>{scenario.label}</span>
-                    <p className="text-[10px] text-secondary mt-0.5">年度碳排：{scenario.annualCarbonTco2e} tCO2e/yr</p>
+                    <p className="text-[13px] text-secondary mt-0.5">年度碳排：{scenario.annualCarbonTco2e} tCO2e/yr</p>
                   </div>
                   <div className={cn('w-4 h-4 rounded-full border-2 shrink-0',
                     maint.selectedScenario === scenario.id ? 'border-primary bg-primary' : 'border-white/20')} />
@@ -406,7 +406,7 @@ const DataInput = () => {
               <LabeledInput label="年度維護碳排（自訂）" value={String(maint.annualMaintenanceCarbon)} unit="tCO2e/yr" type="number"
                 onChange={v => dispatch({ type: 'SET_MAINTENANCE', payload: { annualMaintenanceCarbon: parseFloat(v) || 0 } })} />
               <div className="space-y-1.5">
-                <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">灌溉強度</label>
+                <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">灌溉強度</label>
                 <select value={maint.irrigationIntensity}
                   onChange={e => dispatch({ type: 'SET_MAINTENANCE', payload: { irrigationIntensity: e.target.value as any } })}
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-ink outline-none focus:border-primary/50">
@@ -422,7 +422,7 @@ const DataInput = () => {
                 onChange={v => dispatch({ type: 'SET_MAINTENANCE', payload: { pruningFrequency: v } })} />
               <LabeledInput label="年均補植率" value={String(maint.replacementRate)} unit="%" type="number"
                 onChange={v => dispatch({ type: 'SET_MAINTENANCE', payload: { replacementRate: parseFloat(v) || 0 } })} />
-              <div className="p-3 bg-white/5 border border-white/10 rounded-xl space-y-1.5 text-[11px]">
+              <div className="p-3 bg-white/5 border border-white/10 rounded-xl space-y-1.5 text-[13px]">
                 <div className="flex justify-between">
                   <span className="text-secondary">年度維護碳排</span>
                   <span className="text-accent font-bold">{maint.annualMaintenanceCarbon} tCO2e/yr</span>
@@ -442,7 +442,7 @@ const DataInput = () => {
         <Card title="碳係數登錄 Carbon Factor Registry" icon={Database}>
           <div className="space-y-4">
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-[10px]">
+              <table className="w-full text-left text-[13px]">
                 <thead>
                   <tr className="border-b border-white/10 text-secondary uppercase tracking-tight whitespace-nowrap">
                     <th className="py-2 px-2">係數名稱</th>
@@ -473,12 +473,12 @@ const DataInput = () => {
             </div>
             <div className="flex items-center justify-between pt-2 border-t border-white/5">
               <button onClick={() => dispatch({ type: 'ADD_FACTOR' })}
-                className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-xl text-[11px] text-primary font-bold transition-all">
+                className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-xl text-[13px] text-primary font-bold transition-all">
                 <span className="text-base leading-none">+</span> 新增係數
               </button>
-              <span className="text-[9px] text-secondary/40">共 {factors.length} 筆係數</span>
+              <span className="text-[13px] text-secondary/40">共 {factors.length} 筆係數</span>
             </div>
-            <div className="p-3 bg-accent/5 border border-accent/10 rounded-xl text-[10px] text-accent/80 italic">
+            <div className="p-3 bg-accent/5 border border-accent/10 rounded-xl text-[13px] text-accent/80 italic">
               * 此頁輸入的係數將對應 Sources 頁的係數登錄表，未來版本將自動連結計算引擎。
             </div>
           </div>

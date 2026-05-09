@@ -1,4 +1,4 @@
-import { Layers, AlertCircle, Zap, Info, Compass, FileText } from 'lucide-react';
+﻿import { Layers, AlertCircle, Zap, Info, Compass, FileText } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Card from '../components/ui/Card';
 import SectionHeading from '../components/ui/SectionHeading';
@@ -10,36 +10,36 @@ const Soil = () => (
     {/* KPI Metrics */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <div className="bg-card-bg p-5 rounded-2xl border border-card-border shadow-lg">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-secondary mb-1">表土保留面積</p>
+        <p className="text-[13px] uppercase tracking-widest font-bold text-secondary mb-1">表土保留面積</p>
         <div className="flex items-baseline gap-1">
           <h4 className="text-2xl font-bold text-primary">8,200</h4>
-          <span className="text-[10px] text-secondary/60">m²</span>
+          <span className="text-[13px] text-secondary/60">m²</span>
         </div>
-        <p className="text-[9px] text-secondary/60 mt-1">保護既有 SOC 基礎</p>
+        <p className="text-[13px] text-secondary/60 mt-1">保護既有 SOC 基礎</p>
       </div>
       <div className="bg-card-bg p-5 rounded-2xl border border-card-border shadow-lg">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-secondary mb-1">土壤改良面積</p>
+        <p className="text-[13px] uppercase tracking-widest font-bold text-secondary mb-1">土壤改良面積</p>
         <div className="flex items-baseline gap-1">
           <h4 className="text-2xl font-bold text-primary">5,600</h4>
-          <span className="text-[10px] text-secondary/60">m²</span>
+          <span className="text-[13px] text-secondary/60">m²</span>
         </div>
-        <p className="text-[9px] text-secondary/60 mt-1">改善根域與有機碳累積條件</p>
+        <p className="text-[13px] text-secondary/60 mt-1">改善根域與有機碳累積條件</p>
       </div>
       <div className="bg-card-bg p-5 rounded-2xl border border-card-border shadow-lg">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-secondary mb-1">有機覆蓋面積</p>
+        <p className="text-[13px] uppercase tracking-widest font-bold text-secondary mb-1">有機覆蓋面積</p>
         <div className="flex items-baseline gap-1">
           <h4 className="text-2xl font-bold text-primary">3,400</h4>
-          <span className="text-[10px] text-secondary/60">m²</span>
+          <span className="text-[13px] text-secondary/60">m²</span>
         </div>
-        <p className="text-[9px] text-secondary/60 mt-1">保水、降溫、減少裸露流失</p>
+        <p className="text-[13px] text-secondary/60 mt-1">保水、降溫、減少裸露流失</p>
       </div>
       <div className="bg-card-bg p-5 rounded-2xl border border-card-border shadow-lg">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-secondary mb-1">土壤固碳潛力</p>
+        <p className="text-[13px] uppercase tracking-widest font-bold text-secondary mb-1">土壤固碳潛力</p>
         <div className="flex items-baseline gap-1">
           <h4 className="text-2xl font-bold text-primary">286</h4>
-          <span className="text-[10px] text-secondary/60">tCO2e</span>
+          <span className="text-[13px] text-secondary/60">tCO2e</span>
         </div>
-        <p className="text-[9px] text-secondary/60 mt-1">30 年 SOC 潛力，未含植栽地上部碳匯</p>
+        <p className="text-[13px] text-secondary/60 mt-1">30 年 SOC 潛力，未含植栽地上部碳匯</p>
       </div>
     </div>
 
@@ -58,20 +58,20 @@ const Soil = () => (
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
                     <span className="text-sm font-bold text-ink">{row.zone}</span>
-                    <span className="text-[10px] text-primary">{row.strategy}</span>
+                    <span className="text-[13px] text-primary">{row.strategy}</span>
                   </div>
                   <div className="text-right flex items-center gap-6">
                     <div>
-                      <span className="text-[10px] text-secondary font-bold uppercase block">擾動風險</span>
-                      <span className={cn("text-xs font-bold", row.risk === '低' ? "text-primary" : "text-accent")}>{row.risk}</span>
+                      <span className="text-[13px] text-secondary font-bold uppercase block">擾動風險</span>
+                      <span className={cn("text-[13px] font-bold", row.risk === '低' ? "text-primary" : "text-accent")}>{row.risk}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-secondary font-bold uppercase block">30年固碳</span>
+                      <span className="text-[13px] text-secondary font-bold uppercase block">30年固碳</span>
                       <span className="text-sm font-mono font-bold text-primary">{row.sink}</span>
                     </div>
                   </div>
                 </div>
-                <p className="text-[10px] text-secondary/70 leading-relaxed border-t border-white/5 pt-2">{row.desc}</p>
+                <p className="text-[13px] text-secondary/70 leading-relaxed border-t border-white/5 pt-2">{row.desc}</p>
               </div>
             ))}
           </div>
@@ -89,13 +89,13 @@ const Soil = () => (
                      { label: '排水不良', val: '中' },
                      { label: '有機質不足', val: '中' },
                    ].map(item => (
-                     <div key={item.label} className="flex justify-between items-center text-[11px] bg-white/5 p-2 rounded-lg">
+                     <div key={item.label} className="flex justify-between items-center text-[13px] bg-white/5 p-2 rounded-lg">
                         <span className="text-secondary">{item.label}</span>
                         <span className={cn("font-bold px-2 py-0.5 rounded", item.val === '高' ? "text-accent bg-accent/10" : "text-ink bg-white/5")}>{item.val}</span>
                      </div>
                    ))}
                 </div>
-                <p className="text-[10px] text-secondary italic leading-relaxed">
+                <p className="text-[13px] text-secondary italic leading-relaxed">
                   「土壤碳的增加速度通常低於植栽碳匯，若基地施工擾動過大，原有土壤碳庫可能先流失，再進入長期恢復期。」
                 </p>
              </div>
@@ -112,8 +112,8 @@ const Soil = () => (
                   <div key={i} className="flex items-start gap-3 p-2 bg-white/5 rounded-lg border border-white/5">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
                     <div>
-                      <div className="text-[11px] font-bold text-ink">{s.label}</div>
-                      <div className="text-[10px] text-secondary">{s.desc}</div>
+                      <div className="text-[13px] font-bold text-ink">{s.label}</div>
+                      <div className="text-[13px] text-secondary">{s.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -126,13 +126,13 @@ const Soil = () => (
       <div className="space-y-6">
         <Card title="土壤碳模型摘要 SOC Model Summary" icon={Info}>
           <div className="space-y-4">
-             <div className="grid grid-cols-2 gap-y-3 text-[11px]">
+             <div className="grid grid-cols-2 gap-y-3 text-[13px]">
                 <span className="text-secondary">評估年限</span><span className="text-ink font-bold text-right">30 年</span>
                 <span className="text-secondary">計算範圍</span><span className="text-ink font-bold text-right">表土層 0–30 cm</span>
                 <span className="text-secondary">模型類型</span><span className="text-ink font-bold text-right">簡化 SOC 潛力估算</span>
                 <span className="text-secondary">資料狀態</span><span className="text-accent font-bold text-right">Prototype Mock</span>
              </div>
-             <p className="text-[10px] text-secondary/60 leading-relaxed italic border-t border-white/5 pt-3">
+             <p className="text-[13px] text-secondary/60 leading-relaxed italic border-t border-white/5 pt-3">
                「本頁土壤碳為 30 年土壤有機碳潛力模擬結果，主要反映管理效益，尚未依現地檢測校正。」
              </p>
           </div>
@@ -141,8 +141,8 @@ const Soil = () => (
         <Card title="納入 / 排除範圍 Included / Excluded" icon={Layers}>
            <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1">
-                <div className="text-[9px] text-primary font-bold uppercase">納入</div>
-                <ul className="text-[9px] text-secondary space-y-1 list-disc list-inside">
+                <div className="text-[13px] text-primary font-bold uppercase">納入</div>
+                <ul className="text-[13px] text-secondary space-y-1 list-disc list-inside">
                   <li>表土保留效益</li>
                   <li>土壤改良有機質</li>
                   <li>覆蓋物長期貢獻</li>
@@ -150,8 +150,8 @@ const Soil = () => (
                 </ul>
               </div>
               <div className="space-y-1">
-                <div className="text-[9px] text-accent font-bold uppercase">排除</div>
-                <ul className="text-[9px] text-secondary space-y-1 list-disc list-inside opacity-60">
+                <div className="text-[13px] text-accent font-bold uppercase">排除</div>
+                <ul className="text-[13px] text-secondary space-y-1 list-disc list-inside opacity-60">
                   <li>植栽地上部碳匯</li>
                   <li>外部碳抵換</li>
                   <li>深層土壤碳分析</li>
@@ -169,7 +169,7 @@ const Soil = () => (
                 { m: 'Scenario', text: '比較不同策略潛力' },
                 { m: 'Reporting', text: '獨立於植栽碳匯揭露' },
               ].map((l, i) => (
-                <div key={i} className="flex items-center justify-between p-2 bg-white/5 rounded-lg border border-white/5 text-[10px]">
+                <div key={i} className="flex items-center justify-between p-2 bg-white/5 rounded-lg border border-white/5 text-[13px]">
                   <span className="text-primary font-bold">{l.m}</span>
                   <span className="text-secondary italic">{l.text}</span>
                 </div>
@@ -186,13 +186,13 @@ const Soil = () => (
                    "有機質含量未經實測",
                    "變化受氣候與施工干擾"
                  ].map((u, i) => (
-                   <div key={i} className="flex gap-2 items-start text-[10px] text-secondary">
+                   <div key={i} className="flex gap-2 items-start text-[13px] text-secondary">
                       <div className="w-1 h-1 rounded-full bg-accent mt-1.5 shrink-0" />
                       <span>{u}</span>
                    </div>
                  ))}
               </div>
-              <div className="p-3 bg-accent/5 border border-accent/10 rounded-xl text-[10px] text-accent leading-tight italic">
+              <div className="p-3 bg-accent/5 border border-accent/10 rounded-xl text-[13px] text-accent leading-tight italic">
                 「土壤固碳潛力為 30 年長期累積潛力，不應視為完工當年度即可直接抵減的固定量。」
               </div>
            </div>
@@ -207,7 +207,7 @@ const Soil = () => (
                 "於 Maintenance 檢討補充頻率",
                 "於 Scenario 頁比較方案差異",
               ].map((action, i) => (
-                 <button key={i} className="w-full text-left p-2.5 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-xl text-[10px] text-primary font-bold transition-all">
+                 <button key={i} className="w-full text-left p-2.5 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-xl text-[13px] text-primary font-bold transition-all">
                     {action}
                  </button>
               ))}

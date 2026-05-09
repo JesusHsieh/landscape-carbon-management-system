@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import {
   LayoutDashboard, Settings, Trees, FileText, ShieldCheck,
   Search, Leaf, Factory, AlertCircle, Box, Map, ClipboardList,
@@ -72,7 +72,7 @@ export default function App() {
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full mb-6"
         />
-        <p className="text-secondary font-mono tracking-widest text-[10px] uppercase font-bold">Initializing NCMS Engine...</p>
+        <p className="text-secondary font-mono tracking-widest text-[13px] uppercase font-bold">Initializing NCMS Engine...</p>
       </div>
     );
   }
@@ -88,7 +88,7 @@ export default function App() {
           </div>
           <div>
             <span className="font-extrabold text-lg text-primary tracking-tighter leading-none block">NCMS</span>
-            <span className="text-[9px] text-secondary uppercase font-bold tracking-widest mt-1 block">Landscape Carbon Management System</span>
+            <span className="text-[13px] text-secondary uppercase font-bold tracking-widest mt-1 block">Landscape Carbon Management System</span>
           </div>
         </div>
 
@@ -107,13 +107,13 @@ export default function App() {
         <div className="mt-auto pt-6 border-t border-white/5">
           <div className="bg-white/5 p-4 rounded-2xl border border-white/5">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] font-bold text-secondary uppercase tracking-tighter">System Info</span>
+              <span className="text-[13px] font-bold text-secondary uppercase tracking-tighter">System Info</span>
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(126,155,113,0.5)]" />
             </div>
             <div className="space-y-1">
-              <p className="text-[9px] text-secondary/60">Mode: <span className="text-primary font-bold">Local Prototype</span></p>
-              <p className="text-[9px] text-secondary/60">Data: <span className="text-accent font-bold">Mock Enabled</span></p>
-              <p className="text-[9px] text-secondary/60">Confidence: <span className="text-ink">Demo</span></p>
+              <p className="text-[13px] text-secondary/60">Mode: <span className="text-primary font-bold">Local Prototype</span></p>
+              <p className="text-[13px] text-secondary/60">Data: <span className="text-accent font-bold">Mock Enabled</span></p>
+              <p className="text-[13px] text-secondary/60">Confidence: <span className="text-ink">Demo</span></p>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function App() {
                   </div>
                   <div>
                     <span className="font-extrabold text-lg text-primary tracking-tighter leading-none block">NCMS</span>
-                    <span className="text-[9px] text-secondary uppercase font-bold tracking-widest mt-1 block">Landscape Carbon Mgmt</span>
+                    <span className="text-[13px] text-secondary uppercase font-bold tracking-widest mt-1 block">Landscape Carbon Mgmt</span>
                   </div>
                 </div>
                 <button
@@ -183,11 +183,11 @@ export default function App() {
               <div className="mt-auto pt-4 border-t border-white/5">
                 <div className="bg-white/5 p-3 rounded-2xl border border-white/5">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-bold text-secondary uppercase tracking-tighter">System Info</span>
+                    <span className="text-[13px] font-bold text-secondary uppercase tracking-tighter">System Info</span>
                     <span className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(126,155,113,0.5)]" />
                   </div>
-                  <p className="text-[9px] text-secondary/60">Mode: <span className="text-primary font-bold">Local Prototype</span></p>
-                  <p className="text-[9px] text-secondary/60">Data: <span className="text-accent font-bold">Mock Enabled</span></p>
+                  <p className="text-[13px] text-secondary/60">Mode: <span className="text-primary font-bold">Local Prototype</span></p>
+                  <p className="text-[13px] text-secondary/60">Data: <span className="text-accent font-bold">Mock Enabled</span></p>
                 </div>
               </div>
             </motion.aside>
@@ -197,13 +197,13 @@ export default function App() {
 
       {/* --- Main Content --- */}
       <main className="flex-1 overflow-y-auto overflow-x-hidden relative">
-        <header className="sticky top-0 z-30 bg-bg/85 backdrop-blur-xl border-b border-white/5 px-8 xl:px-8 pl-16 xl:pl-8 h-20 flex items-center justify-between">
+        <header className="sticky top-0 z-30 bg-bg/85 backdrop-blur-xl border-b border-white/5 px-[40px] pl-[64px] xl:pl-[40px] h-20 flex items-center justify-between">
           <div className="animate-in slide-in-from-left duration-500">
             <h1 className="text-xl font-black text-ink tracking-tight flex items-center gap-2">
               {mock.mockProject.name}
-              <span className="text-[10px] bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 rounded-full font-bold uppercase tracking-widest">{activeTab}</span>
+              <span className="text-[13px] bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 rounded-full font-bold uppercase tracking-widest">{activeTab}</span>
             </h1>
-            <p className="text-[10px] text-secondary font-bold uppercase tracking-widest mt-1 opacity-70 italic">{mock.mockProject.phase}</p>
+            <p className="text-[13px] text-secondary font-bold uppercase tracking-widest mt-1 opacity-70 italic">{mock.mockProject.phase}</p>
           </div>
           <div className="flex items-center gap-6">
             <div className="relative group hidden lg:block">
@@ -211,7 +211,7 @@ export default function App() {
               <input
                 type="text"
                 placeholder="搜尋模組、材料、植栽或碳係數…"
-                className="pl-10 pr-4 py-2 bg-white/5 border border-transparent rounded-xl text-xs focus:ring-1 focus:ring-primary/50 transition-all outline-none w-64 group-focus-within:bg-white/10"
+                className="pl-10 pr-4 py-2 bg-white/5 border border-transparent rounded-xl text-[13px] focus:ring-1 focus:ring-primary/50 transition-all outline-none w-64 group-focus-within:bg-white/10"
               />
             </div>
             <div className="flex items-center gap-4 border-l border-white/10 pl-6">
@@ -219,8 +219,8 @@ export default function App() {
                  <AlertCircle className="w-5 h-5" />
                  <span className="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full border-2 border-bg" />
                  <div className="absolute top-full right-0 mt-2 w-64 bg-card-bg border border-card-border p-4 rounded-2xl shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all z-50">
-                    <h4 className="text-[10px] font-black text-secondary tracking-widest uppercase mb-3">通知 Notification</h4>
-                    <div className="space-y-2 text-[10px]">
+                    <h4 className="text-[13px] font-black text-secondary tracking-widest uppercase mb-3">通知 Notification</h4>
+                    <div className="space-y-2 text-[13px]">
                        <div className="p-2 bg-white/5 rounded-lg border border-white/5 flex gap-2">
                           <AlertCircle className="w-3 h-3 text-accent shrink-0" />
                           <span>有 9 筆係數需要人工確認</span>
@@ -238,24 +238,24 @@ export default function App() {
                </button>
                <div className="flex items-center gap-3 group relative cursor-help">
                  <div className="text-right hidden sm:block">
-                   <p className="text-xs font-bold text-ink">Jesus Hsieh</p>
-                   <p className="text-[9px] text-secondary font-bold">Landscape Carbon Consultant</p>
+                   <p className="text-[13px] font-bold text-ink">Jesus Hsieh</p>
+                   <p className="text-[13px] text-secondary font-bold">Landscape Carbon Consultant</p>
                  </div>
-                 <div className="w-9 h-9 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-black text-xs">JH</div>
+                 <div className="w-9 h-9 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-black text-[13px]">JH</div>
                  <div className="absolute top-full right-0 mt-2 w-48 bg-card-bg border border-card-border p-4 rounded-2xl shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all z-50">
                     <div className="space-y-3">
                        <div className="border-b border-white/5 pb-2">
-                          <p className="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1">使用者角色</p>
-                          <p className="text-xs text-ink font-bold">Landscape Carbon Consultant</p>
+                          <p className="text-[13px] text-secondary font-bold uppercase tracking-widest mb-1">使用者角色</p>
+                          <p className="text-[13px] text-ink font-bold">Landscape Carbon Consultant</p>
                        </div>
                        <div className="border-b border-white/5 pb-2">
-                          <p className="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1">專案權限</p>
-                          <p className="text-xs text-primary font-bold">Demo User</p>
+                          <p className="text-[13px] text-secondary font-bold uppercase tracking-widest mb-1">專案權限</p>
+                          <p className="text-[13px] text-primary font-bold">Demo User</p>
                        </div>
                        <div className="space-y-1">
-                          <button className="w-full text-left text-[10px] text-secondary hover:text-primary py-1 transition-colors">查看角色資訊</button>
-                          <button className="w-full text-left text-[10px] text-secondary hover:text-primary py-1 transition-colors">Demo 權限說明</button>
-                          <button className="w-full text-left text-[10px] text-accent/50 py-1 cursor-not-allowed" disabled>登出 (Demo only)</button>
+                          <button className="w-full text-left text-[13px] text-secondary hover:text-primary py-1 transition-colors">查看角色資訊</button>
+                          <button className="w-full text-left text-[13px] text-secondary hover:text-primary py-1 transition-colors">Demo 權限說明</button>
+                          <button className="w-full text-left text-[13px] text-accent/50 py-1 cursor-not-allowed" disabled>登出 (Demo only)</button>
                        </div>
                     </div>
                  </div>
@@ -264,7 +264,7 @@ export default function App() {
           </div>
         </header>
 
-        <div className="p-8 max-w-[1440px] mx-auto min-h-[calc(100vh-80px)]">
+        <div className="px-[40px] py-8 max-w-[1440px] mx-auto min-h-[calc(100vh-80px)]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -293,7 +293,7 @@ export default function App() {
         </div>
 
         {/* --- Floating Preferences --- */}
-        <div className="fixed bottom-8 right-8 z-50">
+        <div className="fixed bottom-[40px] right-[40px] z-50">
            <AnimatePresence>
              {showPreferences && (
                <motion.div
@@ -310,13 +310,13 @@ export default function App() {
 
                    <div className="space-y-4">
                      <div className="space-y-2">
-                       <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">語言 Language</label>
+                       <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">語言 Language</label>
                        <div className="grid grid-cols-2 gap-2">
                          {['繁體中文', 'English'].map(l => (
                            <button
                              key={l}
                              onClick={() => setPrefs({...prefs, language: l})}
-                             className={cn("py-2 rounded-xl text-[10px] font-bold border transition-all", prefs.language === l ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-secondary border-white/5")}
+                             className={cn("py-2 rounded-xl text-[13px] font-bold border transition-all", prefs.language === l ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-secondary border-white/5")}
                            >
                              {l}
                            </button>
@@ -325,13 +325,13 @@ export default function App() {
                      </div>
 
                      <div className="space-y-2">
-                       <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">單位顯示 Unit Display</label>
+                       <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">單位顯示 Unit Display</label>
                        <div className="grid grid-cols-2 gap-2">
                          {['kgCO2e', 'tCO2e'].map(u => (
                            <button
                              key={u}
                              onClick={() => setPrefs({...prefs, unit: u})}
-                             className={cn("py-2 rounded-xl text-[10px] font-bold border transition-all", prefs.unit === u ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-secondary border-white/5")}
+                             className={cn("py-2 rounded-xl text-[13px] font-bold border transition-all", prefs.unit === u ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-secondary border-white/5")}
                            >
                              {u}
                            </button>
@@ -340,7 +340,7 @@ export default function App() {
                      </div>
 
                      <div className="space-y-2">
-                       <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">顯示模式 Mode</label>
+                       <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">顯示模式 Mode</label>
                        <div className="grid grid-cols-1 gap-2">
                          {[
                            { m: 'Demo 模式', d: '適合簡報展示，資訊較精簡。' },
@@ -352,8 +352,8 @@ export default function App() {
                              onClick={() => setPrefs({...prefs, mode: item.m})}
                              className={cn("p-3 rounded-2xl text-left border transition-all space-y-1", prefs.mode === item.m ? "bg-primary/20 border-primary/30" : "bg-white/5 border-white/5")}
                            >
-                             <div className={cn("text-[10px] font-bold", prefs.mode === item.m ? "text-primary" : "text-ink")}>{item.m}</div>
-                             <div className="text-[9px] text-secondary/60 leading-tight">{item.d}</div>
+                             <div className={cn("text-[13px] font-bold", prefs.mode === item.m ? "text-primary" : "text-ink")}>{item.m}</div>
+                             <div className="text-[13px] text-secondary/60 leading-tight">{item.d}</div>
                            </button>
                          ))}
                        </div>
@@ -361,8 +361,8 @@ export default function App() {
 
                      <div className="flex items-center justify-between p-3 bg-white/5 rounded-2xl border border-white/5">
                         <div className="space-y-0.5">
-                           <div className="text-[10px] font-bold text-ink">可信度標籤 Overlay</div>
-                           <div className="text-[9px] text-secondary/60">顯示 A-E 分級標籤</div>
+                           <div className="text-[13px] font-bold text-ink">可信度標籤 Overlay</div>
+                           <div className="text-[13px] text-secondary/60">顯示 A-E 分級標籤</div>
                         </div>
                         <button
                           onClick={() => setPrefs({...prefs, confidence: !prefs.confidence})}
@@ -373,13 +373,13 @@ export default function App() {
                      </div>
 
                      <div className="space-y-2">
-                       <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">圖表細節 Chart Detail</label>
+                       <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">圖表細節 Chart Detail</label>
                        <div className="grid grid-cols-2 gap-2">
                          {['精簡', '詳細'].map(d => (
                            <button
                              key={d}
                              onClick={() => setPrefs({...prefs, detail: d})}
-                             className={cn("py-2 rounded-xl text-[10px] font-bold border transition-all", prefs.detail === d ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-secondary border-white/5")}
+                             className={cn("py-2 rounded-xl text-[13px] font-bold border transition-all", prefs.detail === d ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-secondary border-white/5")}
                            >
                              {d}
                            </button>
@@ -388,13 +388,13 @@ export default function App() {
                      </div>
 
                      <div className="space-y-2">
-                       <label className="text-[10px] text-secondary font-bold uppercase tracking-widest">主題 Theme</label>
+                       <label className="text-[13px] text-secondary font-bold uppercase tracking-widest">主題 Theme</label>
                        <div className="grid grid-cols-2 gap-2">
                          {['深色模式', '淺色 (未來)'].map(t => (
                            <button
                              key={t}
                              onClick={() => t === '深色模式' ? setPrefs({...prefs, theme: t}) : undefined}
-                             className={cn("py-2 rounded-xl text-[10px] font-bold border transition-all", prefs.theme === t ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-secondary border-white/5", t !== '深色模式' && "opacity-50 cursor-not-allowed")}
+                             className={cn("py-2 rounded-xl text-[13px] font-bold border transition-all", prefs.theme === t ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-secondary border-white/5", t !== '深色模式' && "opacity-50 cursor-not-allowed")}
                            >
                              {t}
                            </button>
