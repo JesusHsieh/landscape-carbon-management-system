@@ -73,7 +73,7 @@ NCMS 的核心架構包含三個主要碳管理面向：
 | **Scenario** | 多方案情境比較（Baseline / Low Carbon / Nature Positive） |
 | **Reduction** | 減碳策略清單與優先順序建議 |
 | **Reporting** | 景觀碳管理報告預覽，含摘要、量化數值、免責聲明，支援多版本輸出 |
-| **Sources** | 碳排係數來源登錄與可信度分級（A / B / C / Demo） |
+| **Sources** | 碳排係數來源登錄與可信度分級（A / B / C / Demo）；**Climatiq API 即時搜尋**，搜尋結果可一鍵匯入係數庫 |
 | **Data Input** | 手動資料輸入頁：6 個分頁（專案設定、BOQ、植栽、土壤、維護、碳係數），支援草稿儲存與 localStorage 保存 |
 | **System Status** | 系統資訊、模組運行狀態與 Prototype 聲明 |
 
@@ -125,6 +125,10 @@ src/
 │       └── defaultScenario.ts
 ├── store/
 │   └── projectStore.tsx        # React Context + useReducer 狀態管理
+├── services/
+│   └── climatiq.ts             # Climatiq API 客戶端（碳係數搜尋）
+├── hooks/
+│   └── useClimatiq.ts          # Climatiq React hook
 ├── utils/
 │   ├── validation.ts           # 輸入驗證
 │   └── carbonCalculations.ts  # Prototype 簡化碳排計算
@@ -154,6 +158,9 @@ src/
 # 安裝依賴
 npm install
 
+# 設定環境變數（複製範本後填入 API Key）
+cp .env.example .env.local
+
 # 啟動開發伺服器（port 3002）
 npm run dev
 
@@ -163,6 +170,14 @@ npm run build
 # 預覽建置結果
 npm run preview
 ```
+
+### 外部 API 設定
+
+| 變數 | 說明 | 取得方式 |
+|------|------|---------|
+| `VITE_CLIMATIQ_API_KEY` | Climatiq 碳係數搜尋 API（免費 500 req/月） | [app.climatiq.io](https://app.climatiq.io) |
+
+> 未設定 API Key 時系統仍可正常運作，Sources 頁面搜尋功能會顯示設定說明。
 
 ---
 
