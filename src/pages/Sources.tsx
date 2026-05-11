@@ -1,9 +1,34 @@
-﻿import { Info, Database, ShieldCheck, AlertCircle, Zap, Tag } from 'lucide-react';
+import { useState } from 'react';
+import { Database, ShieldCheck, AlertCircle, Zap, Tag, Search, Loader2, CloudDownload, ExternalLink } from 'lucide-react';
 import { cn } from '../lib/utils';
 import Card from '../components/ui/Card';
 import SectionHeading from '../components/ui/SectionHeading';
+import { useClimatiq } from '../hooks/useClimatiq';
+import { toCarbonFactor, type ClimatiqFactor } from '../services/climatiq';
+import { useProject } from '../store/projectStore';
 
 const Sources = () => {
+  const { state, dispatch } = useProject();
+  const { results, totalResults, loading, error, configured, search, clear } = useClimatiq();
+  const [query, setQuery] = useState('');
+  const [imported, setImported] = useState<Set<string>>(new Set());
+
+  const handleSearch = async () => {
+    if (!query.trim()) return;
+    await search({ query: query.trim(), results_per_page: 8 });
+  };
+
+  const handleImport = (f: ClimatiqFactor) => {
+    const factor = toCarbonFactor(f);
+    const idx = state.carbonFactors.length; // index of the soon-to-be-added item
+    dispatch({ type: 'ADD_FACTOR' });
+    dispatch({ type: 'UPDATE_FACTOR', index: idx, field: 'name', value: factor.name });
+    dispatch({ type: 'UPDATE_FACTOR', index: idx, field: 'value', value: factor.value });
+    dispatch({ type: 'UPDATE_FACTOR', index: idx, field: 'unit', value: factor.unit });
+    dispatch({ type: 'UPDATE_FACTOR', index: idx, field: 'source', value: factor.source });
+    setImported(prev => new Set(prev).add(f.activity_id));
+  };
+
   const factors = [
     {
       name: "Taiwan Electricity Emission Factor",
@@ -95,10 +120,150 @@ const Sources = () => {
               <span className={cn("text-xl font-black", kpi.color)}>{kpi.val}</span>
               <span className="text-[13px] text-secondary/60">{kpi.unit}</span>
             </div>
-            <p className="text-[8px] text-secondary/50 leading-tight">{kpi.desc}</p>
+            <p className="text-[13px] text-secondary/50 leading-tight">{kpi.desc}</p>
           </div>
         ))}
       </div>
+
+      {/* ── Climatiq Live Search ── */}
+      <Card title="Climatiq 即時係數搜尋 (Live Factor Search)" icon={Search}>
+        <div className="space-y-4">
+          {/* Status bar */}
+          <div className="flex items-center gap-2">
+            <div className={cn("w-2 h-2 rounded-full", configured ? "bg-primary animate-pulse" : "bg-accent")} />
+            <span className="text-[13px] text-secondary">
+              {configured
+                ? "Climatiq API 已連線 · 免費方案 500 req/月"
+                : "未偵測到 VITE_CLIMATIQ_API_KEY — 請設定 .env.local"}
+            </span>
+            <a
+              href="https://app.climatiq.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-auto flex items-center gap-1 text-[13px] text-primary/60 hover:text-primary transition-colors"
+            >
+              取得 API Key <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
+
+          {/* Search input */}
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleSearch()}
+              placeholder="搜尋碳係數，例如：concrete, steel, electricity, diesel..."
+              disabled={!configured || loading}
+              className={cn(
+                "flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-[13px] text-ink placeholder:text-secondary/40",
+                "focus:outline-none focus:border-primary/40 transition-colors",
+                (!configured || loading) && "opacity-40 cursor-not-allowed"
+              )}
+            />
+            <button
+              onClick={handleSearch}
+              disabled={!configured || loading || !query.trim()}
+              className={cn(
+                "flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] font-bold transition-all",
+                "bg-primary/20 text-primary border border-primary/20 hover:bg-primary/30",
+                (!configured || loading || !query.trim()) && "opacity-40 cursor-not-allowed"
+              )}
+            >
+              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
+              搜尋
+            </button>
+            {results.length > 0 && (
+              <button
+                onClick={clear}
+                className="px-4 py-2.5 rounded-xl text-[13px] text-secondary border border-white/10 hover:border-white/20 transition-all"
+              >
+                清除
+              </button>
+            )}
+          </div>
+
+          {/* Error */}
+          {error && (
+            <div className="flex items-center gap-2 p-3 bg-accent/10 border border-accent/20 rounded-xl">
+              <AlertCircle className="w-4 h-4 text-accent shrink-0" />
+              <span className="text-[13px] text-accent">{error}</span>
+            </div>
+          )}
+
+          {/* Results */}
+          {results.length > 0 && (
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[13px] text-secondary">找到 <span className="text-ink font-bold">{totalResults}</span> 筆，顯示前 {results.length} 筆</span>
+              </div>
+              <div className="overflow-x-auto rounded-xl border border-white/10">
+                <table className="w-full text-left text-[13px]">
+                  <thead>
+                    <tr className="border-b border-white/10 bg-white/5">
+                      <th className="py-3 px-3 text-secondary font-bold uppercase tracking-widest">名稱</th>
+                      <th className="py-3 px-3 text-secondary font-bold uppercase tracking-widest">類別</th>
+                      <th className="py-3 px-3 text-secondary font-bold uppercase tracking-widest">係數值</th>
+                      <th className="py-3 px-3 text-secondary font-bold uppercase tracking-widest">單位</th>
+                      <th className="py-3 px-3 text-secondary font-bold uppercase tracking-widest">來源</th>
+                      <th className="py-3 px-3 text-secondary font-bold uppercase tracking-widest">地區</th>
+                      <th className="py-3 px-3 text-secondary font-bold uppercase tracking-widest">年份</th>
+                      <th className="py-3 px-3"></th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/5">
+                    {results.map((f) => (
+                      <tr key={f.activity_id} className="hover:bg-white/5 transition-colors">
+                        <td className="py-3 px-3">
+                          <div className="font-bold text-ink max-w-[200px] truncate" title={f.name}>{f.name}</div>
+                          <div className="text-[13px] text-secondary/50 font-mono truncate max-w-[200px]">{f.activity_id}</div>
+                        </td>
+                        <td className="py-3 px-3 text-secondary">{f.category}</td>
+                        <td className="py-3 px-3 font-mono font-bold text-ink">{f.factor.toFixed(4)}</td>
+                        <td className="py-3 px-3 text-secondary">kgCO2e/{f.unit}</td>
+                        <td className="py-3 px-3 text-secondary/70">{f.source}</td>
+                        <td className="py-3 px-3 text-secondary/70">{f.region_name || f.region}</td>
+                        <td className="py-3 px-3 text-secondary/70">{f.year}</td>
+                        <td className="py-3 px-3">
+                          <button
+                            onClick={() => handleImport(f)}
+                            disabled={imported.has(f.activity_id)}
+                            className={cn(
+                              "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13px] font-bold transition-all whitespace-nowrap",
+                              imported.has(f.activity_id)
+                                ? "bg-primary/10 text-primary/40 cursor-default"
+                                : "bg-primary/20 text-primary border border-primary/20 hover:bg-primary/30"
+                            )}
+                          >
+                            <CloudDownload className="w-3.5 h-3.5" />
+                            {imported.has(f.activity_id) ? '已匯入' : '匯入'}
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-[13px] text-secondary/40 italic text-center">
+                匯入的係數將加入「碳係數輸入」頁籤，可於 DataInput 頁面編輯。
+              </p>
+            </div>
+          )}
+
+          {!configured && (
+            <div className="p-4 bg-white/5 rounded-xl border border-white/10 space-y-2">
+              <p className="text-[13px] text-secondary font-bold">設定步驟：</p>
+              <ol className="list-decimal list-inside space-y-1 text-[13px] text-secondary/70">
+                <li>前往 <span className="text-primary">app.climatiq.io</span> 免費註冊</li>
+                <li>複製 API Key</li>
+                <li>在專案根目錄建立 <span className="font-mono text-ink">.env.local</span></li>
+                <li>加入 <span className="font-mono text-ink">VITE_CLIMATIQ_API_KEY=your_key_here</span></li>
+                <li>重啟 dev server</li>
+              </ol>
+            </div>
+          )}
+        </div>
+      </Card>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-3 space-y-6">
@@ -138,13 +303,13 @@ const Sources = () => {
                       </td>
                       <td className="py-4 px-3">
                          <span className={cn(
-                           "px-2 py-0.5 rounded text-[8px] font-bold whitespace-nowrap",
+                           "px-2 py-0.5 rounded text-[13px] font-bold whitespace-nowrap",
                            f.status.startsWith('Report Ready') ? "bg-primary/10 text-primary" : "bg-white/10 text-secondary"
                          )}>{f.status}</span>
                       </td>
                       <td className="py-4 px-3">
                         <span className={cn(
-                           "px-2 py-0.5 rounded text-[8px] font-bold",
+                           "px-2 py-0.5 rounded text-[13px] font-bold",
                            f.engine.startsWith('Yes') ? "bg-primary/20 text-primary" :
                            f.engine.startsWith('Conditional') ? "bg-yellow-400/20 text-yellow-400" : "bg-accent/20 text-accent"
                         )}>{f.engine}</span>
@@ -213,16 +378,21 @@ const Sources = () => {
                   { v: 'v0.3', t: '文件匯入 (CSV)' },
                   { v: 'v0.4', t: '雲端同步 (Sheet)' },
                   { v: 'v0.5', t: '在地計算 (Local)' },
-                  { v: 'v1.0', t: '資料庫 (API)' },
+                  { v: 'v1.0', t: '資料庫 (API) ✓', active: true },
                 ].map((step, i) => (
-                  <div key={i} className="p-3 bg-white/5 rounded-xl border border-white/5 flex flex-col items-center gap-1">
-                     <span className="text-[13px] font-black text-primary">{step.v}</span>
+                  <div key={i} className={cn(
+                    "p-3 rounded-xl border flex flex-col items-center gap-1",
+                    (step as { active?: boolean }).active
+                      ? "bg-primary/10 border-primary/30"
+                      : "bg-white/5 border-white/5"
+                  )}>
+                     <span className={cn("text-[13px] font-black", (step as { active?: boolean }).active ? "text-primary" : "text-primary")}>{step.v}</span>
                      <span className="text-[13px] text-secondary text-center leading-tight">{step.t}</span>
                   </div>
                 ))}
              </div>
              <p className="text-[13px] text-secondary/60 italic text-center mt-4">
-                目前版本為原型數據治理介面。正式的 API 或資料庫連接將在方法論與係數架構穩定後進行開發。
+                Climatiq API 已接入作為首個外部係數資料庫連接器。
              </p>
           </Card>
         </div>
@@ -259,7 +429,7 @@ const Sources = () => {
                   { s: 'Rejected (已遭拒絕)', desc: '不允許進入計算引擎。', color: 'bg-accent/10 text-accent opacity-50' },
                 ].map((status, i) => (
                   <div key={i} className="p-3 bg-white/5 rounded-xl border border-white/5 space-y-1 hover:border-white/20 transition-all">
-                     <div className={cn("px-1.5 py-0.5 rounded text-[8px] font-bold w-fit", status.color)}>{status.s}</div>
+                     <div className={cn("px-1.5 py-0.5 rounded text-[13px] font-bold w-fit", status.color)}>{status.s}</div>
                      <p className="text-[13px] text-secondary opacity-60 italic">{status.desc}</p>
                   </div>
                 ))}
